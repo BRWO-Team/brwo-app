@@ -19,7 +19,7 @@ class MainDirect extends React.Component {
               <div class="col-md-6">
                 <a class="fade-page" href="home-coworking.html">
                   <img
-                    src="assets/img/demos/home-coworking.png"
+                    src="https://image.freepik.com/free-photo/relaxing-people-sharing-with-gadgets_23-2147745177.jpg"
                     alt="Coworking"
                     class="rounded shadow-3d hover-shadow-3d border mb-3 mb-md-0"
                   />
@@ -32,8 +32,9 @@ class MainDirect extends React.Component {
                       <h3 class="h2">Borrow Items</h3>
                     </a>
                     <p class="lead">
-                      A landing for shared workspaces with date picker
-                      functionality.
+                      Why buy an item you're going to use for a day when you can
+                      borrow it for a fraction of the cost! Here are some common
+                      items to borrow:
                     </p>
                     <ul class="list-unstyled my-3">
                       <li class="d-flex align-items-center my-2">
@@ -43,7 +44,7 @@ class MainDirect extends React.Component {
                           alt="icon"
                           data-inject-svg
                         />
-                        <span class="h6 mb-0 ml-2">Date picker</span>
+                        <span class="h6 mb-0 ml-2">Tools</span>
                       </li>
                       <li class="d-flex align-items-center my-2">
                         <img
@@ -52,7 +53,7 @@ class MainDirect extends React.Component {
                           alt="icon"
                           data-inject-svg
                         />
-                        <span class="h6 mb-0 ml-2">Blog listing cards</span>
+                        <span class="h6 mb-0 ml-2">Sports Equipment</span>
                       </li>
                       <li class="d-flex align-items-center my-2">
                         <img
@@ -61,9 +62,7 @@ class MainDirect extends React.Component {
                           alt="icon"
                           data-inject-svg
                         />
-                        <span class="h6 mb-0 ml-2">
-                          Fullscreen video lightbox
-                        </span>
+                        <span class="h6 mb-0 ml-2">Books</span>
                       </li>
                     </ul>
                   </div>
@@ -78,7 +77,7 @@ class MainDirect extends React.Component {
               <div class="col-md-6">
                 <a class="fade-page" href="home-mobile-app.html">
                   <img
-                    src="assets/img/demos/home-mobile-application.png"
+                    src="https://image.freepik.com/free-photo/people-hangout-together-coffee-shop_53876-16003.jpg"
                     alt="Mobile Application"
                     class="rounded shadow-3d hover-shadow-3d border mb-3 mb-md-0"
                   />
@@ -91,8 +90,8 @@ class MainDirect extends React.Component {
                       <h3 class="h2">Borrow Time</h3>
                     </a>
                     <p class="lead">
-                      Make an impression showcasing the features of your mobile
-                      app.
+                      Connect with subject and skill experts to pick their brain
+                      and learn valuable skills. Common borrows inlcude:
                     </p>
                     <ul class="list-unstyled my-3">
                       <li class="d-flex align-items-center my-2">
@@ -102,7 +101,7 @@ class MainDirect extends React.Component {
                           alt="icon"
                           data-inject-svg
                         />
-                        <span class="h6 mb-0 ml-2">Screenshot slider</span>
+                        <span class="h6 mb-0 ml-2">Fitness</span>
                       </li>
                       <li class="d-flex align-items-center my-2">
                         <img
@@ -112,7 +111,7 @@ class MainDirect extends React.Component {
                           data-inject-svg
                         />
                         <span class="h6 mb-0 ml-2">
-                          Fullscreen video lightbox
+                          Personal and professional development
                         </span>
                       </li>
                       <li class="d-flex align-items-center my-2">
@@ -122,7 +121,9 @@ class MainDirect extends React.Component {
                           alt="icon"
                           data-inject-svg
                         />
-                        <span class="h6 mb-0 ml-2">Masonry testimonials</span>
+                        <span class="h6 mb-0 ml-2">
+                          Financial, organization, and technical skills
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -137,7 +138,7 @@ class MainDirect extends React.Component {
               <div class="col-md-6">
                 <a class="fade-page" href="home-course.html">
                   <img
-                    src="assets/img/demos/home-course.png"
+                    src="https://i.pinimg.com/originals/ef/56/c4/ef56c4413e7be9f14a13d2db2ad9ccc5.jpg"
                     alt="Online Course"
                     class="rounded shadow-3d hover-shadow-3d border mb-3 mb-md-0"
                   />
@@ -147,41 +148,13 @@ class MainDirect extends React.Component {
                 <div class="row justify-content-center">
                   <div class="col-xl-9 col-lg-10">
                     <a href="home-course.html" class="fade-up">
-                      <h3 class="h2">Make a Request to Borrow</h3>
+                      <h3 class="h2">Make a Quick Borrow Request</h3>
                     </a>
                     <p class="lead">
-                      An engaging layout to promote e-learning and paid course
-                      material.
+                      Don't see what you want on the marketplace? Make a request
+                      and nearby users will be notified that you're looking for
+                      something.
                     </p>
-                    <ul class="list-unstyled my-3">
-                      <li class="d-flex align-items-center my-2">
-                        <img
-                          class="icon icon-lg"
-                          src="assets/img/icons/theme/communication/add-user.svg"
-                          alt="icon"
-                          data-inject-svg
-                        />
-                        <span class="h6 mb-0 ml-2">Signup form</span>
-                      </li>
-                      <li class="d-flex align-items-center my-2">
-                        <img
-                          class="icon icon-lg"
-                          src="assets/img/icons/theme/communication/chat-6.svg"
-                          alt="icon"
-                          data-inject-svg
-                        />
-                        <span class="h6 mb-0 ml-2">Testimonial slider</span>
-                      </li>
-                      <li class="d-flex align-items-center my-2">
-                        <img
-                          class="icon icon-lg"
-                          src="assets/img/icons/theme/home/book-open.svg"
-                          alt="icon"
-                          data-inject-svg
-                        />
-                        <span class="h6 mb-0 ml-2">Chapter overview cards</span>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
