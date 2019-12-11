@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Container, Row, Col } from "react-bootstrap";
-import '../styles/main.css'
+// import '../styles/main.css'
 
 class Main extends React.Component {
   render() {

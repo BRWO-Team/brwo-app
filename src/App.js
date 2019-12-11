@@ -1,15 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Home from "./pages/Home";
-import Header from "./components/Header";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import logo from "./logo.svg";
+// import "./App.css";
+// import Home from "./pages/Home";
+// import Header from "./components/Header";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import ThemeTest from "./components/ThemeTest";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Home />
+      <ThemeTest />
+      {/* <Header />
+      <Home /> */}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
