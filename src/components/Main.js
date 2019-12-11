@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Container, Row, Col } from "react-bootstrap";
 import Header from "../components/Header";
+import MainDirect from "../components/MainDirect";
 // import '../styles/main.css'
 
 class Main extends React.Component {
@@ -8,6 +8,7 @@ class Main extends React.Component {
     return (
       <div className="main">
         <Header />
+        <MainDirect />
       </div>
     );
   }
