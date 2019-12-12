@@ -4,12 +4,12 @@ class Header extends React.Component {
   render() {
     return (
       <div> 
-        <div className="navbar-container bg-primary-alt">
+        <div className="navbar-container ">
           <nav
             className="navbar navbar-expand-lg  navbar-light bg-primary-alt "
             data-sticky="top"
           >
-            <div className="container bg-primary-alt">
+            <div className="container ">
               <a className="navbar-brand fade-page" href="index.html">
                 <h1>BRWO</h1>
               </a>
@@ -23,7 +23,7 @@ class Header extends React.Component {
               >
                 <img
                   className="icon navbar-toggler-open"
-                  src="assets/img/icons/interface/menu.svg"
+                  src="https://static.thenounproject.com/png/204478-200.png"
                   alt="menu interface icon"
                   data-inject-svg
                 />
