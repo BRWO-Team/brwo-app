@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import BorrowItems from "./pages/BorrowItems";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Error from "./components/Error";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

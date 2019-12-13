@@ -11,7 +11,7 @@ class Footer extends React.Component {
                 <h5>Navigate</h5>
                 <ul className="nav flex-column">
                   <li className="nav-item">
-                    <a href="#" className="nav-link">
+                    <a href="/borrow-items" className="nav-link">
                       Borrow Items
                     </a>
                   </li>

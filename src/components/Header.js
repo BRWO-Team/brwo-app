@@ -10,7 +10,7 @@ class Header extends React.Component {
             data-sticky="top"
           >
             <div className="container ">
-              <a className="navbar-brand fade-page" href="index.html">
+              <a className="navbar-brand fade-page" href="/">
                 <h1>BRWO</h1>
               </a>
               <button
