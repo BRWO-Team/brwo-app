@@ -38,9 +38,7 @@ class Footer extends React.Component {
                       data-inject-svg
                     />
                     <div className="ml-3">
-                      <span>
-                        Philadelphia, PA{" "}
-                      </span>
+                      <span>Philadelphia, PA </span>
                     </div>
                   </li>
                   <li className="mb-3 d-flex">
@@ -153,26 +151,7 @@ class Footer extends React.Component {
                       />
                     </a>
                   </li>
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <img
-                        className="icon undefined"
-                        src="assets/img/icons/social/youtube.svg"
-                        alt="youtube social icon"
-                        data-inject-svg
-                      />
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <img
-                        className="icon undefined"
-                        src="assets/img/icons/social/medium.svg"
-                        alt="medium social icon"
-                        data-inject-svg
-                      />
-                    </a>
-                  </li>
+
                   <li className="nav-item">
                     <a href="#" className="nav-link">
                       <img
@@ -189,15 +168,7 @@ class Footer extends React.Component {
             <div className="row justify-content-center">
               <div className="col col-md-auto text-center">
                 <small className="text-muted">
-                  &copy;2019 This page is protected by reCAPTCHA and is subject
-                  to the Google{" "}
-                  <a href="https://www.google.com/policies/privacy/">
-                    Privacy Policy
-                  </a>{" "}
-                  and{" "}
-                  <a href="https://policies.google.com/terms">
-                    Terms of Service.
-                  </a>
+                  &copy; 2019 BRWO. All rights reserved.
                 </small>
               </div>
             </div>
