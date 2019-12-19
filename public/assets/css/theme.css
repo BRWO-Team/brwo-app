@@ -4799,7 +4799,10 @@ a.close.disabled {
   vertical-align: text-top !important; }
 
 .bg-primary {
-  background-color: #3755BE !important; }
+  background-color: #4169e1 !important; }
+
+.bg-blank {
+  background-color: #7a7e88 !important; }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
@@ -4863,7 +4866,7 @@ button.bg-dark:focus {
   background-color: #0a0c0d !important; }
 
 .bg-primary-2 {
-  background-color: #FF8E88 !important; }
+  background-color: rgb(240, 72, 63) !important; }
 
 a.bg-primary-2:hover, a.bg-primary-2:focus,
 button.bg-primary-2:hover,
@@ -4871,7 +4874,7 @@ button.bg-primary-2:focus {
   background-color: #ff5e55 !important; }
 
 .bg-primary-3 {
-  background-color: #4169e1 !important; }
+  background-color: #2ce263 !important; }
 
 a.bg-primary-3:hover, a.bg-primary-3:focus,
 button.bg-primary-3:hover,
