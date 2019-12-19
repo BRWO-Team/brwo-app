@@ -10,13 +10,18 @@ class Footer extends React.Component {
               <div className="col-6 col-lg-3 col-xl-2">
                 <h5>Navigate</h5>
                 <ul className="nav flex-column">
+                <li className="nav-item">
+                    <a href="/" className="nav-link">
+                      Home
+                    </a>
+                  </li>
                   <li className="nav-item">
                     <a href="/borrow-items" className="nav-link">
                       Borrow Items
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a href="#" className="nav-link">
+                    <a href="/borrow-time" className="nav-link">
                       Borrow Time
                     </a>
                   </li>
@@ -63,7 +68,7 @@ class Footer extends React.Component {
                       data-inject-svg
                     />
                     <div className="ml-3">
-                      <a href="#">tayloraj10@gmail.com</a>
+                      <a href="mailto: tayloraj10@gmail.com">tayloraj10@gmail.com</a>
                     </div>
                   </li>
                 </ul>

@@ -6,7 +6,7 @@ class Error extends React.Component {
   render() {
     return (
       <div className="error">
-        <section className="min-vh-100 bg-primary-3 text-light py-5 o-hidden">
+        <section className="min-vh-100 bg-primary-2 text-light py-5 o-hidden">
           <div className="container">
             <div className="row text-center py-6">
               <div className="col layer-2">

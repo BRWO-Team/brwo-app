@@ -52,7 +52,7 @@ class Header extends React.Component {
                     </li>
                     <li className="nav-item dropdown">
                       <a
-                        href="#"
+                        href="/borrow-time"
                         className="nav-link dropdown-toggle"
                         aria-expanded="false"
                         aria-haspopup="true"
@@ -77,19 +77,19 @@ class Header extends React.Component {
                         <div className="col-auto" data-dropdown-content>
                           <div className="dropdown-grid-menu">
                             <a
-                              href="home-course.html"
+                              href="#"
                               className="dropdown-item fade-page"
                             >
                               Quick Request
                             </a>
                             <a
-                              href="home-coworking.html"
+                              href="#"
                               className="dropdown-item fade-page"
                             >
                               Items
                             </a>
                             <a
-                              href="home-cryptocurrency.html"
+                              href="#"
                               className="dropdown-item fade-page"
                             >
                               Time
