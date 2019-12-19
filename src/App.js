@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 // import "./App.css";
 import Home from "./pages/Home";
 import BorrowItems from "./pages/BorrowItems";
+import BorrowTime from "./pages/BorrowTime";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
@@ -18,6 +19,7 @@ function App() {
           <Switch>
             <Route path="/" component={Home} exact />
             <Route path="/borrow-items" component={BorrowItems} />
+            <Route path="/borrow-time" component={BorrowTime} />
             <Route component={Error} />
           </Switch>
           <Footer />
