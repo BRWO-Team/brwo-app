@@ -6,7 +6,13 @@ const firebase = require("firebase");
 class BorrowItems extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = {
+      data: [],
+      colors: [],
+      categories: [],
+      titles: [],
+      images: []
+    };
   }
 
   componentDidMount() {
@@ -29,25 +35,61 @@ class BorrowItems extends React.Component {
     let db = firebase.firestore();
 
     db.collection("items")
+      //.where("category", "==", 'tool')
+      .limit(6)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
+          let color;
+          switch (doc.data().category) {
+            case "tool":
+              color = "bg-primary";
+              break;
+            case "book":
+              color = "bg-primary-2";
+              break;
+            case "sports":
+              color = "bg-primary-3";
+              break;
+            default:
+              color = "bg-blank";
+          }
+          let category;
+          switch (doc.data().category) {
+            case "tool":
+              category = "Blue";
+              break;
+            case "book":
+              category = "Red";
+              break;
+            case "sports":
+              category = "Green";
+              break;
+            default:
+              category = "";
+          }
           this.setState({ data: this.state.data.concat(doc.data()) });
-          console.log(this.state)
+          this.setState({ titles: this.state.titles.concat(doc.data().title) });
+          this.setState({
+            images: this.state.images.concat(doc.data().images[0])
+          });
+          this.setState({ colors: this.state.colors.concat(color) });
+          this.setState({ categories: this.state.categories.concat(category) });
+          // console.log(this.state);
         });
       });
   }
 
   render() {
-    const listItems = this.state.data.map((item) =>
-        <li key={item.id}>{item.title}</li> 
-    );
     return (
       <div className="borrowItems">
-        <ul>
-          {listItems}
-        </ul>
-        <ItemsList />
+        <ItemsList
+          data={this.state.data}
+          colors={this.state.colors.reverse()}
+          categories={this.state.categories.reverse()}
+          titles={this.state.titles}
+          images={this.state.images}
+        />
       </div>
     );
   }
