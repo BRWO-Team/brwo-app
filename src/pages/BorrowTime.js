@@ -30,7 +30,50 @@ class BorrowTime extends React.Component {
   render() {
     return (
       <div className="borrowTime">
-        <h1>This is the borrow time page</h1>
+        <section>
+          <div class="container">
+            <div class="row min-vh-70 mb-3">
+              <div class="col-4">
+                <div class="py-3 hover-shadow-3d bg-primary-alt text-center rounded h-100">
+                  <img
+                    className={"time-header-image"}
+                    src="/assets/img/food-app-6.png"
+                  />
+                </div>
+              </div>
+              <div class="col-8 d-flex flex-column">
+                <div class="row flex-grow-1">
+                  <div class="col-12">
+                    <div class="py-3 hover-shadow-3d bg-primary-alt text-center rounded h-100">
+                      <img
+                        className={"time-header-image"}
+                        src="/assets/img/article-1.jpg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3 flex-grow-1">
+                  <div class="col-6">
+                    <div class="py-3 hover-shadow-3d bg-primary-alt text-center rounded h-100">
+                      <img
+                        className={"time-header-image"}
+                        src="/assets/img/inner-5.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="py-3 hover-shadow-3d bg-primary-alt text-center rounded h-100">
+                      <img
+                        className={"time-header-image"}
+                        src="/assets/img/article-8.jpg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
