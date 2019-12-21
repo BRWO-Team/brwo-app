@@ -54,6 +54,7 @@ class ItemsList extends React.Component {
         color={"bg-primary-3"}
         category={"Green"}
         title={"Test6"}
+        description={"This is a basketball"}
         image={
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzb8x7wP93DrIuseB1wTj0FPWpdFflQbRuuyBsoIU3-gW8Ct0X&s"
         }
