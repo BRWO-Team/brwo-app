@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import BorrowItems from "./pages/BorrowItems";
 import BorrowTime from "./pages/BorrowTime";
+import Add from "./pages/Add"
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" component={Home} exact />
             <Route path="/borrow-items" component={BorrowItems} />
             <Route path="/borrow-time" component={BorrowTime} />
+            <Route path="/add" component={Add} />
             <Route component={Error} />
           </Switch>
           <Footer />
