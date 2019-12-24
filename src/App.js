@@ -1,62 +1,51 @@
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import logo from "./logo.svg";
-// import "./App.css";
-import Home from "./pages/Home";
-import BorrowItems from "./pages/BorrowItems";
-import BorrowTime from "./pages/BorrowTime";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Error from "./components/Error";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/borrow-items" component={BorrowItems} />
-            <Route path="/borrow-time" component={BorrowTime} />
-            <Route component={Error} />
-          </Switch>
-          <Footer />
-          <a
-            href="#"
-            className="btn back-to-top btn-primary btn-round"
-            data-smooth-scroll
-            data-aos="fade-up"
-            data-aos-mirror="true"
-            data-aos-once="false"
-          >
-            <img
-              className="icon"
-              src="https://cdn3.iconfinder.com/data/icons/basic-user-interface-application/32/INSTAGRAM_ICON_SETS-29-512.png"
-              alt="arrow-up icon"
-              data-inject-svg
-            />
-          </a>
-        </div>
-      </BrowserRouter>
+import { changeRoute } from './actions/router.action';
 
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Home from './components/Home';
+import ItemsList from './components/ItemsList';
+import Login from './components/Login';
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <Header />
+
+        {(this.props.router.route === 'Home' || !this.props.router.route) && (
+          <Home />
+        )}
+        {this.props.router.route === 'Login' && <Login />}
+        {this.props.router.route === 'borrow-items' && <ItemsList />}
+
+        <Footer />
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='#'
+          className='btn back-to-top btn-primary btn-round'
+          data-smooth-scroll
+          data-aos='fade-up'
+          data-aos-mirror='true'
+          data-aos-once='false'
         >
-          Learn React
+          <img
+            className='icon'
+            src='https://cdn3.iconfinder.com/data/icons/basic-user-interface-application/32/INSTAGRAM_ICON_SETS-29-512.png'
+            alt='arrow-up icon'
+            data-inject-svg
+          />
         </a>
-      </header> */}
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps, {
+  changeRoute
+})(App);
+
+export { App };

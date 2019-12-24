@@ -1,103 +1,106 @@
-import React from "react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { changeRoute } from '../actions/router.action';
+import { signout } from '../actions/firebase.action';
 
-class Header extends React.Component {
+import './Header.css';
+
+class Header extends Component {
   render() {
     return (
       <div>
-        <div className="navbar-container ">
+        <div className='navbar-container '>
           <nav
-            className="navbar navbar-expand-lg  navbar-light bg-primary-alt "
-            data-sticky="top"
+            className='navbar navbar-expand-lg  navbar-light bg-primary-alt '
+            data-sticky='top'
           >
-            <div className="container ">
-              <a className="navbar-brand fade-page" href="/">
+            <div className='container '>
+              <div
+                className='navbar-brand fade-page header-title'
+                onClick={() => this.props.changeRoute('Home')}
+              >
                 <h1>BRWO</h1>
-              </a>
+              </div>
               <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target=".navbar-collapse"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                className='navbar-toggler'
+                type='button'
+                data-toggle='collapse'
+                data-target='.navbar-collapse'
+                aria-expanded='false'
+                aria-label='Toggle navigation'
               >
                 <img
-                  className="icon navbar-toggler-open"
-                  src="https://static.thenounproject.com/png/204478-200.png"
-                  alt="menu interface icon"
+                  className='icon navbar-toggler-open'
+                  src='https://static.thenounproject.com/png/204478-200.png'
+                  alt='menu interface icon'
                   data-inject-svg
                 />
                 <img
-                  className="icon navbar-toggler-close"
-                  src="assets/img/icons/interface/cross.svg"
-                  alt="cross interface icon"
+                  className='icon navbar-toggler-close'
+                  src='assets/img/icons/interface/cross.svg'
+                  alt='cross interface icon'
                   data-inject-svg
                 />
               </button>
-              <div className="collapse navbar-collapse justify-content-end">
-                <div className="py-2 py-lg-0">
-                  <ul className="navbar-nav">
-                    <li className="nav-item dropdown">
-                      <a
-                        href="/borrow-items"
-                        className="nav-link dropdown-toggle"
-                        aria-expanded="false"
-                        aria-haspopup="true"
+              <div className='collapse navbar-collapse justify-content-end'>
+                <div className='py-2 py-lg-0'>
+                  <ul className='navbar-nav'>
+                    <li className='nav-item dropdown'>
+                      <div
+                        onClick={() => this.props.changeRoute('borrow-items')}
+                        className='nav-link dropdown-toggle'
+                        aria-expanded='false'
+                        aria-haspopup='true'
                       >
-                        Borrow Items
-                      </a>
-                      <div className="dropdown-menu row">
-                        <div className="col-auto" data-dropdown-content></div>
+                        Get Started
+                      </div>
+                      <div className='dropdown-menu row'>
+                        <div className='col-auto' data-dropdown-content></div>
                       </div>
                     </li>
-                    <li className="nav-item dropdown">
-                      <a
-                        href="/borrow-time"
-                        className="nav-link dropdown-toggle"
-                        aria-expanded="false"
-                        aria-haspopup="true"
-                      >
-                        Borrow Time
-                      </a>
-                      <div className="dropdown-menu row">
-                        <div className="col-auto" data-dropdown-content></div>
-                      </div>
-                    </li>
-                    <li className="nav-item dropdown">
-                      <a
-                        href="#"
-                        className="nav-link dropdown-toggle "
-                        data-toggle="dropdown-grid"
-                        aria-expanded="false"
-                        aria-haspopup="true"
-                      >
-                        Make a Request to Borrow
-                      </a>
-                      <div className="dropdown-menu row">
-                        <div className="col-auto" data-dropdown-content>
-                          <div className="dropdown-grid-menu">
-                            <a
-                              href="#"
-                              className="dropdown-item fade-page"
-                            >
-                              Quick Request
-                            </a>
-                            <a
-                              href="#"
-                              className="dropdown-item fade-page"
-                            >
-                              Items
-                            </a>
-                            <a
-                              href="#"
-                              className="dropdown-item fade-page"
-                            >
-                              Time
-                            </a>
-                          </div>
+                    {this.props.firebase.user && (
+                      <li className='nav-item dropdown'>
+                        <div
+                          className='nav-link dropdown-toggle'
+                          aria-expanded='false'
+                          aria-haspopup='true'
+                        >
+                          My Account
                         </div>
-                      </div>
-                    </li>
+                        <div className='dropdown-menu row'>
+                          <div className='col-auto' data-dropdown-content></div>
+                        </div>
+                      </li>
+                    )}
+                    {!this.props.firebase.user ? (
+                      <li className='nav-item dropdown'>
+                        <div
+                          onClick={() => this.props.changeRoute('Login')}
+                          className='nav-link dropdown-toggle'
+                          aria-expanded='false'
+                          aria-haspopup='true'
+                        >
+                          Login
+                        </div>
+                        <div className='dropdown-menu row'>
+                          <div className='col-auto' data-dropdown-content></div>
+                        </div>
+                      </li>
+                    ) : (
+                      <li className='nav-item dropdown'>
+                        <div
+                          className='nav-link dropdown-toggle'
+                          aria-expanded='false'
+                          aria-haspopup='true'
+                          onClick={() => this.props.signout()}
+                        >
+                          Logout
+                        </div>
+                        <div className='dropdown-menu row'>
+                          <div className='col-auto' data-dropdown-content></div>
+                        </div>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -109,4 +112,11 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps, {
+  changeRoute,
+  signout
+})(Header);
+
+export { Header };
