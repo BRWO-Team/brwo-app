@@ -20,5 +20,18 @@
 }
 
 .time-header-image {
-    margin: auto;
+  margin: auto;
+}
+
+.add-form-control {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.add-form-section {
+  margin-bottom: 40px;
+}
+
+.add-form-category-checkbox {
+  margin-bottom: 10px;
 }
