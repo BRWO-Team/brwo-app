@@ -1,5 +1,6 @@
 import React from "react";
 import ItemsList from "../components/ItemsList";
+import AddFormModal from "../components/AddFormModal"
 const firebase = require("firebase");
 // const admin = require("firebase-admin");
 
@@ -83,6 +84,7 @@ class BorrowItems extends React.Component {
   render() {
     return (
       <div className="borrowItems">
+        <AddFormModal />
         <ItemsList
           data={this.state.data}
           colors={this.state.colors.reverse()}
