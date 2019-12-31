@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {
-  createAccount,
-  signin,
-  signout,
-  verifyUser
-} from '../actions/firebase.action';
+import { createAccount, signin, signout } from '../actions/firebase.action';
 
 import { changeRoute } from '../actions/router.action';
 import Home from './Home';
@@ -36,10 +31,6 @@ class Login extends Component {
       passwordVerification: '',
       createAccount: false
     };
-  }
-
-  componentDidMount() {
-    this.props.verifyUser();
   }
 
   handleEmailChange(event) {
@@ -206,8 +197,7 @@ export default connect(mapStateToProps, {
   createAccount,
   changeRoute,
   signin,
-  signout,
-  verifyUser
+  signout
 })(Login);
 
 export { Login };

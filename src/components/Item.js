@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Item.css';
+
 class Item extends React.Component {
   render() {
     return (
@@ -9,11 +11,9 @@ class Item extends React.Component {
         data-category={this.props.category}
       >
         <div className='card'>
-          <img
-            src={this.props.image}
-            alt={this.props.title}
-            className='card-img-top'
-          />
+          <div className='card-img-top'>
+            <img src={this.props.image} alt={this.props.title} />
+          </div>
 
           <div
             className='card-body d-flex flex-column bg-blank'

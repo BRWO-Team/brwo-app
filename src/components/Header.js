@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 import { changeRoute } from '../actions/router.action';
+import { setLogin } from '../actions/login.action';
 import { signout } from '../actions/firebase.action';
 
 import './Header.css';
@@ -75,7 +77,7 @@ class Header extends Component {
                     {!this.props.firebase.user ? (
                       <li className='nav-item dropdown'>
                         <div
-                          onClick={() => this.props.changeRoute('Login')}
+                          onClick={() => this.props.setLogin(true)}
                           className='nav-link dropdown-toggle'
                           aria-expanded='false'
                           aria-haspopup='true'
@@ -116,7 +118,8 @@ const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
   changeRoute,
-  signout
+  signout,
+  setLogin
 })(Header);
 
 export { Header };

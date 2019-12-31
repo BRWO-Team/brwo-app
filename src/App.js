@@ -2,24 +2,57 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { changeRoute } from './actions/router.action';
+import { setLogin } from './actions/login.action';
+import { verifyUser } from './actions/firebase.action';
 
+import Drawer from '@material-ui/core/Drawer';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
-import ItemsList from './components/ItemsList';
+import Feed from './components/Feed';
 import Login from './components/Login';
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import './App.css';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleCloseLogin = this.handleCloseLogin.bind(this);
+  }
+  componentDidMount() {
+    this.props.verifyUser();
+  }
+
+  handleCloseLogin = () => {
+    this.props.setLogin(false);
+  };
+
   render() {
     return (
       <div className='App'>
         <Header />
+        <Drawer
+          anchor='top'
+          open={this.props.login.isOpen}
+          onClose={this.handleCloseLogin}
+        >
+          <Login />
+        </Drawer>
 
         {(this.props.router.route === 'Home' || !this.props.router.route) && (
           <Home />
         )}
-        {this.props.router.route === 'Login' && <Login />}
-        {this.props.router.route === 'borrow-items' && <ItemsList />}
+
+        {this.props.router.route === 'borrow-items' && <Feed />}
+
+        {this.props.firebase.isFetching ||
+          (this.props.items.isFetching && (
+            <div className='parent'>
+              <CircularProgress color='secondary' className='child' />
+            </div>
+          ))}
 
         <Footer />
         <a
@@ -45,7 +78,9 @@ class App extends Component {
 const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
-  changeRoute
+  changeRoute,
+  setLogin,
+  verifyUser
 })(App);
 
 export { App };
