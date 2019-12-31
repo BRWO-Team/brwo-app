@@ -1,8 +1,10 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
-import firebase from "./firebase.reducer";
-import router from "./router.reducer";
+import login from './login.reducer';
+import items from './items.reducer';
+import firebase from './firebase.reducer';
+import router from './router.reducer';
 
-const rootReducer = combineReducers({ firebase, router });
+const rootReducer = combineReducers({ firebase, router, items, login });
 
 export default rootReducer;

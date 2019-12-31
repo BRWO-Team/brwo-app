@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changeRoute } from '../actions/router.action';
 
 class Footer extends React.Component {
   render() {
@@ -11,23 +13,26 @@ class Footer extends React.Component {
                 <h5>Navigate</h5>
                 <ul className='nav flex-column'>
                   <li className='nav-item'>
-                    <a href='/' className='nav-link'>
+                    <span
+                      className='nav-link'
+                      onClick={() => this.props.changeRoute('Home')}
+                    >
                       Home
-                    </a>
+                    </span>
                   </li>
+
                   <li className='nav-item'>
-                    <a href='/borrow-items' className='nav-link'>
-                      Borrow Items
-                    </a>
-                  </li>
-                  <li className='nav-item'>
-                    <a href='/borrow-time' className='nav-link'>
-                      Borrow Time
-                    </a>
-                  </li>
-                  <li className='nav-item'>
-                    <a href='/' className='nav-link'>
-                      Make a Quick Borrow Request
+                    <a
+                      href='#'
+                      className='btn back-to-top btn-primary btn-round'
+                      data-smooth-scroll
+                      data-aos='fade-up'
+                      data-aos-mirror='true'
+                      data-aos-once='false'
+                      className='nav-link'
+                      onClick={() => this.props.changeRoute('borrow-items')}
+                    >
+                      Get Started
                     </a>
                   </li>
                 </ul>
@@ -75,4 +80,10 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps, {
+  changeRoute
+})(Footer);
+
+export { Footer };
