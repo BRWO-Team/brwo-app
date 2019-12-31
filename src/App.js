@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
 import ItemsList from './components/ItemsList';
+import AddFormControl from './components/AddFormControl'
 import Login from './components/Login';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
         )}
         {this.props.router.route === 'Login' && <Login />}
         {this.props.router.route === 'borrow-items' && <ItemsList />}
+        {this.props.router.route === 'add' && <AddFormControl />}
 
         <Footer />
         <a
