@@ -21,7 +21,7 @@ class Header extends Component {
                 className='navbar-brand fade-page header-title'
                 onClick={() => this.props.changeRoute('Home')}
               >
-                <h1>BRWO</h1>
+                <h1 style={{cursor: 'pointer'}}>BRWO</h1>
               </div>
               <button
                 className='navbar-toggler'

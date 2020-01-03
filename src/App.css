@@ -44,3 +44,29 @@
 .child {
   margin: auto;
 }
+
+.add-btn {
+  margin: auto;
+  margin-top: 20px;
+}
+
+.feed-section {
+  padding-top: 40px;
+}
+
+.back-btn {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.add-form-control {
+  margin: auto;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.add-title {
+  font-size: 15px;
+}

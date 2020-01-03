@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AddForm extends React.Component {
+class AddFormRequest extends React.Component {
   render() {
     return (
       <div className='add-form'>
@@ -12,7 +12,7 @@ class AddForm extends React.Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    className='form-control'
+                    className='form-control add-title'
                     id='input-group-example-std'
                     aria-describedby='input-group-example-std'
                     placeholder={'What are you ' + this.props.type + '?'}
@@ -118,12 +118,4 @@ class AddForm extends React.Component {
   }
 }
 
-export default AddForm;
-
-// category
-// title
-// description
-// price
-// images
-
-// userid
+export default AddFormRequest;

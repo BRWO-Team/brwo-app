@@ -1,5 +1,7 @@
 import React from 'react';
 import AddFormControl from './AddFormControl';
+import { changeRoute } from '../actions/router.action';
+import { connect } from 'react-redux';
 
 class AddFormModal extends React.Component {
   render() {
@@ -9,8 +11,7 @@ class AddFormModal extends React.Component {
           <button
             type='button'
             class='btn btn-primary'
-            data-toggle='modal'
-            data-target='#sign-up-modal'
+            onClick={() => this.props.changeRoute('add')}
           >
             List or Request
           </button>
@@ -74,4 +75,10 @@ class AddFormModal extends React.Component {
   }
 }
 
-export default AddFormModal;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps, {
+  changeRoute
+})(AddFormModal);
+
+export { AddFormModal };

@@ -9,8 +9,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
-import ItemsList from './components/ItemsList';
-import AddFormControl from './components/AddFormControl'
+import Add from './pages/Add'
 import Feed from './components/Feed';
 import Login from './components/Login';
 
@@ -48,7 +47,7 @@ class App extends Component {
         )}
 
         {this.props.router.route === 'borrow-items' && <Feed />}
-        {this.props.router.route === 'add' && <AddFormControl />}
+        {this.props.router.route === 'add' && <Add />}
 
         {this.props.firebase.isFetching ||
           (this.props.items.isFetching && (

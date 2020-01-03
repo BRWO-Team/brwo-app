@@ -16,6 +16,7 @@ class Footer extends React.Component {
                     <span
                       className='nav-link'
                       onClick={() => this.props.changeRoute('Home')}
+                      style={{cursor: 'pointer'}}
                     >
                       Home
                     </span>
@@ -23,14 +24,9 @@ class Footer extends React.Component {
 
                   <li className='nav-item'>
                     <a
-                      href='#'
-                      className='btn back-to-top btn-primary btn-round'
-                      data-smooth-scroll
-                      data-aos='fade-up'
-                      data-aos-mirror='true'
-                      data-aos-once='false'
                       className='nav-link'
                       onClick={() => this.props.changeRoute('borrow-items')}
+                      style={{cursor: 'pointer'}}
                     >
                       Get Started
                     </a>

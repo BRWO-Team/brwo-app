@@ -1,5 +1,8 @@
 import React from 'react';
-import AddForm from '../components/AddForm';
+import AddFormListing from './AddFormListing';
+import AddFormRequest from './AddFormRequest';
+import { connect } from 'react-redux';
+import { changeRoute } from '../actions/router.action';
 
 class AddFormControl extends React.Component {
   constructor(props) {
@@ -17,16 +20,16 @@ class AddFormControl extends React.Component {
 
   requestChanged() {
     this.setState({
-      type: 'request'
+      type: 'requesting'
     });
   }
 
   render() {
     let type;
     if (this.state.type == 'listing') {
-      type = <AddForm type={this.state.type} />;
-    } else {
-      type = '';
+      type = <AddFormListing type={this.state.type} />;
+    } else if (this.state.type == 'requesting') {
+      type = <AddFormRequest type={this.state.type} />;
     }
 
     return (
@@ -64,7 +67,7 @@ class AddFormControl extends React.Component {
             </div>
           </div>
           <div className='row'>
-            <div >
+            <div>
               <h2>List or Request</h2>
               <form>
                 <div className='form-group'>
@@ -109,4 +112,10 @@ class AddFormControl extends React.Component {
   }
 }
 
-export default AddFormControl;
+const mapStateToProps = state => ({ ...state });
+
+export default connect(mapStateToProps, {
+  changeRoute
+})(AddFormControl);
+
+export { AddFormControl };

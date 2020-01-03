@@ -3,6 +3,11 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
+        <ul>
+          <li>What is BRWO? (Give description of service)</li>
+          <li>Better explanation of what you can do (time, people, requests)</li>
+          <li>Show most recent listings</li>
+        </ul>
         <div className="mainDirect">
           <section className="text-center" id="demos">
             <div className="container">

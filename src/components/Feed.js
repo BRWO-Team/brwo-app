@@ -1,19 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { getNItems } from '../actions/items.action';
-
+import { changeRoute } from '../actions/router.action';
 import Item from './Item';
 
 class ItemsList extends React.Component {
   componentDidMount() {
-    this.props.getNItems(10);
+    this.props.getNItems(12);
   }
 
   render() {
     return (
       <div className='itemsList'>
-        <section>
+        <button
+          type='button'
+          className='btn btn-primary add-btn'
+          onClick={() => this.props.changeRoute('add')}
+        >
+          List or Request
+        </button>
+        <section className='feed-section'>
           <div className='container'>
             <div className='row justify-content-center'>
               <div className='col'>
@@ -48,7 +54,8 @@ class ItemsList extends React.Component {
 const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
-  getNItems
+  getNItems,
+  changeRoute
 })(ItemsList);
 
 export { ItemsList };
