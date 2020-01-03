@@ -21,8 +21,7 @@ const config = {
   projectId: 'pacific-plating-262123'
 };
 
-const app = firebase.initializeApp(config);
-const db = firebase.firestore(app);
+firebase.initializeApp(config);
 
 const clearFirebase = () => {
   return dispatch => {
