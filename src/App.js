@@ -35,7 +35,7 @@ class App extends Component {
         <Header />
         <Drawer
           anchor='top'
-          open={this.props.login.isOpen}
+          open={this.props.login.isOpen && !this.props.firebase.user}
           onClose={this.handleCloseLogin}
         >
           <Login />

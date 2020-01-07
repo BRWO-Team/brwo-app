@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createAccount, signin, signout } from '../actions/firebase.action';
 
 import { changeRoute } from '../actions/router.action';
-import Home from './Home';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -91,102 +91,94 @@ class Login extends Component {
   render() {
     return (
       <div>
-        {!this.props.firebase.verifyingUser && !this.props.firebase.user ? (
-          <div className='login'>
-            {this.state.createAccount ? (
-              <h3>Create Account</h3>
-            ) : (
-              <h3>Login</h3>
-            )}
+        <div className='login'>
+          {this.state.createAccount ? <h3>Create Account</h3> : <h3>Login</h3>}
+          <TextField
+            className='email'
+            label={`Email`}
+            fullWidth
+            value={this.state.email}
+            onChange={e => this.handleEmailChange(e)}
+            margin='normal'
+            style={{ display: 'block' }}
+          />
+          {this.state.createAccount && (
             <TextField
-              className='email'
-              label={`Email`}
               fullWidth
-              value={this.state.email}
-              onChange={e => this.handleEmailChange(e)}
+              className='name'
+              label={`Name`}
+              value={this.state.name}
+              onChange={e => this.handleNameChange(e)}
               margin='normal'
               style={{ display: 'block' }}
             />
-            {this.state.createAccount && (
-              <TextField
-                fullWidth
-                className='name'
-                label={`Name`}
-                value={this.state.name}
-                onChange={e => this.handleNameChange(e)}
-                margin='normal'
-                style={{ display: 'block' }}
-              />
-            )}
+          )}
+          <TextField
+            fullWidth
+            type='password'
+            className='password'
+            label={`Password`}
+            value={this.state.password}
+            onChange={e => this.handlePasswordChange(e)}
+            margin='normal'
+            style={{ display: 'block' }}
+          />
+          {this.state.createAccount && (
             <TextField
               fullWidth
               type='password'
               className='password'
-              label={`Password`}
-              value={this.state.password}
-              onChange={e => this.handlePasswordChange(e)}
+              label={`Verify Password`}
+              value={this.state.passwordVerification}
+              onChange={e => this.handlePasswordVerificationChange(e)}
               margin='normal'
               style={{ display: 'block' }}
             />
-            {this.state.createAccount && (
-              <TextField
-                fullWidth
-                type='password'
-                className='password'
-                label={`Verify Password`}
-                value={this.state.passwordVerification}
-                onChange={e => this.handlePasswordVerificationChange(e)}
-                margin='normal'
-                style={{ display: 'block' }}
-              />
-            )}
+          )}
 
+          <Button
+            variant='contained'
+            style={{
+              color: 'white',
+              marginTop: '1em',
+              float: 'left',
+              backgroundColor: '#BB86FC',
+              marginRight: '1em'
+            }}
+            onClick={this.handleSubmit}
+            className='submit-button'
+          >
+            {this.state.createAccount ? 'Create Account' : 'Sign In'}
+          </Button>
+
+          {!this.state.createAccount ? (
             <Button
               variant='contained'
               style={{
                 color: 'white',
                 marginTop: '1em',
-                float: 'left',
-                backgroundColor: '#BB86FC',
-                marginRight: '1em'
+                backgroundColor: '#BB86FC'
               }}
-              onClick={this.handleSubmit}
-              className='submit-button'
+              onClick={this.handleCreateAccount}
+              className='create-button'
             >
-              {this.state.createAccount ? 'Create Account' : 'Sign In'}
+              Create Account
             </Button>
-
-            {!this.state.createAccount ? (
-              <Button
-                variant='contained'
-                style={{
-                  color: 'white',
-                  marginTop: '1em',
-                  backgroundColor: '#BB86FC'
-                }}
-                onClick={this.handleCreateAccount}
-                className='create-button'
-              >
-                Create Account
-              </Button>
-            ) : (
-              <Button
-                variant='contained'
-                style={{
-                  color: 'white',
-                  marginTop: '1em',
-                  backgroundColor: '#BB86FC'
-                }}
-                onClick={this.close}
-                className='create-button'
-              >
-                Return
-              </Button>
-            )}
-          </div>
-        ) : (
-          <Home />
-        )}
+          ) : (
+            <Button
+              variant='contained'
+              style={{
+                color: 'white',
+                marginTop: '1em',
+                backgroundColor: '#BB86FC'
+              }}
+              onClick={this.close}
+              className='create-button'
+            >
+              Return
+            </Button>
+          )}
+        </div>
       </div>
     );
   }

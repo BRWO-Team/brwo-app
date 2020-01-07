@@ -49,6 +49,14 @@ class Header extends Component {
                   <ul className='navbar-nav'>
                     <li className='nav-item dropdown'>
                       <div
+                        onClick={() => this.props.changeRoute('Home')}
+                        className='nav-link dropdown-toggle'
+                        aria-expanded='false'
+                        aria-haspopup='true'
+                      >
+                        Home
+                      </div>
+                      <div
                         onClick={() => this.props.changeRoute('borrow-items')}
                         className='nav-link dropdown-toggle'
                         aria-expanded='false'
