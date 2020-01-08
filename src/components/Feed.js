@@ -17,7 +17,7 @@ class ItemsList extends React.Component {
           className='btn btn-primary add-btn'
           onClick={() => this.props.changeRoute('add')}
         >
-          List or Request
+          Add a Listing or Make a Request
         </button>
         <section className='feed-section'>
           <div className='container'>

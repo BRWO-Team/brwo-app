@@ -120,10 +120,11 @@ class AddFormListing extends React.Component {
 
 export default AddFormListing;
 
-// category
+// categories
 // title
 // description
 // price
 // images
+// location/zipcode
 
 // userid

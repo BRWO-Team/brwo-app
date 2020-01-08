@@ -34,7 +34,7 @@ class AddFormControl extends React.Component {
 
     return (
       <div className='add-form-control'>
-        <div className='container add-form-section'>
+        <div className='container'>
           <div className='row'>
             <div>
               <h2>Item or Time</h2>
