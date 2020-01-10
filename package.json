@@ -1,5 +1,4 @@
 {
-  "proxy": "http://127.0.0.1:8080",
   "name": "brwo",
   "version": "0.0.0",
   "private": true,
@@ -28,7 +27,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "set HTTPS=true && react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

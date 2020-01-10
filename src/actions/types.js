@@ -23,3 +23,7 @@ export const GET_ITEMS_SUCCESS = 'GET_ITEMS_SUCCESS';
 export const GET_ITEMS_ERROR = 'GET_ITEMS_ERROR';
 
 export const OPEN_LOGIN = 'OPEN_LOGIN';
+
+export const REQUEST_ADD_ITEM = 'REQUEST_ADD_ITEM';
+export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
+export const ADD_ITEM_ERROR = 'ADD_ITEM_ERROR';

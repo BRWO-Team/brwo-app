@@ -8,7 +8,7 @@ class AddFormListing extends React.Component {
         <div className='container '>
           <div className='row'>
             <div>
-              <h2>Title</h2>
+              <h3>Title</h3>
               <div className='form-group'>
                 <input
                   type='text'
@@ -27,7 +27,7 @@ class AddFormListing extends React.Component {
         <div className='container'>
           <div className='row'>
             <div>
-              <h2>Description</h2>
+              <h3>Description</h3>
               <div className='form-group'>
                 <label htmlFor='textarea-example-1'>
                   {'Please provide a brief description of what you are ' +
@@ -45,58 +45,10 @@ class AddFormListing extends React.Component {
           </div>
         </div>
 
-        <div className='container add-form-section'>
-          <div className='row'>
-            <div>
-              <h2>Categories</h2>
-              <div className='custom-control custom-switch add-form-category-checkbox'>
-                <input
-                  type='checkbox'
-                  className='custom-control-input'
-                  id='customSwitch1'
-                />
-                <label className='custom-control-label' htmlFor='customSwitch1'>
-                  Book
-                </label>
-              </div>
-              <div className='custom-control custom-switch add-form-category-checkbox'>
-                <input
-                  type='checkbox'
-                  className='custom-control-input'
-                  id='customSwitch2'
-                />
-                <label className='custom-control-label' htmlFor='customSwitch2'>
-                  Sports Equipment
-                </label>
-              </div>
-              <div className='custom-control custom-switch add-form-category-checkbox'>
-                <input
-                  type='checkbox'
-                  className='custom-control-input'
-                  id='customSwitch3'
-                />
-                <label className='custom-control-label' htmlFor='customSwitch3'>
-                  Tool
-                </label>
-              </div>
-              <div className='custom-control custom-switch add-form-category-checkbox'>
-                <input
-                  type='checkbox'
-                  className='custom-control-input'
-                  id='customSwitch4'
-                />
-                <label className='custom-control-label' htmlFor='customSwitch4'>
-                  Miscellaneous
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className='container'>
           <div className='row'>
             <div>
-              <h2>Price</h2>
+              <h3>Price</h3>
               <div className='input-group mb-3'>
                 <div className='input-group-prepend'>
                   <span className='input-group-text'>$</span>
@@ -115,7 +67,7 @@ class AddFormListing extends React.Component {
 
         <div className='container'>
           <div className='row'>
-            <h2>Add Images</h2>
+            <h3>Add Images</h3>
             <ImageUploader
               withIcon={false}
               buttonText='Choose images'
@@ -132,12 +84,3 @@ class AddFormListing extends React.Component {
 }
 
 export default AddFormListing;
-
-// categories
-// title
-// description
-// price
-// images
-// location/zipcode
-
-// userid
