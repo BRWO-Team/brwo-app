@@ -48,6 +48,7 @@
 .add-btn {
   margin: auto;
   margin-top: 20px;
+  text-align: center;
 }
 
 .feed-section {
@@ -64,7 +65,15 @@
 .add-form-control {
   margin: auto;
   margin-left: 20px;
+}
+
+.add-form-item {
   text-align: left;
+  margin: auto;
+}
+
+.add-form-control button {
+  text-align: none;
 }
 
 .add-title {
