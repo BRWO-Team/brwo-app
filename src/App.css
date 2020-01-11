@@ -2,8 +2,9 @@
   outline: none;
 }
 
-#footer {
-  background-color: #3f51b5;
+.App {
+  min-height: 100vh;
+  position: relative;
 }
 
 .parent {
@@ -11,4 +12,11 @@
 }
 .child {
   margin: auto;
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
 }
