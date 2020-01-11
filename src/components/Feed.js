@@ -25,9 +25,6 @@ class ItemsList extends React.Component {
     return (
       <div className='root'>
         <GridList spacing={1} className='gridList'>
-          <GridListTile key='Subheader' cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component='div'>Filters</ListSubheader>
-          </GridListTile>
           {this.props.items &&
             this.props.items.current &&
             this.props.items.current.map((item, i) => {
