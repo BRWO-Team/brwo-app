@@ -21,7 +21,7 @@ class Header extends Component {
                 className='navbar-brand fade-page header-title'
                 onClick={() => this.props.changeRoute('Home')}
               >
-                <h1 style={{cursor: 'pointer'}}>BRWO</h1>
+                <h1 style={{ cursor: 'pointer' }}>BRWO</h1>
               </div>
               <button
                 className='navbar-toggler'
@@ -54,12 +54,27 @@ class Header extends Component {
                         aria-expanded='false'
                         aria-haspopup='true'
                       >
-                        Get Started
+                        Borrow
                       </div>
                       <div className='dropdown-menu row'>
                         <div className='col-auto' data-dropdown-content></div>
                       </div>
                     </li>
+                    {this.props.firebase.user && (
+                      <li className='nav-item dropdown'>
+                        <div
+                          onClick={() => this.props.changeRoute('add')}
+                          className='nav-link dropdown-toggle'
+                          aria-expanded='false'
+                          aria-haspopup='true'
+                        >
+                          Sell
+                        </div>
+                        <div className='dropdown-menu row'>
+                          <div className='col-auto' data-dropdown-content></div>
+                        </div>
+                      </li>
+                    )}
                     {this.props.firebase.user && (
                       <li className='nav-item dropdown'>
                         <div

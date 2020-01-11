@@ -7,13 +7,6 @@ class Add extends React.Component {
   render() {
     return (
       <div className='add'>
-        <button
-          type='button'
-          className='btn btn-primary back-btn'
-          onClick={() => this.props.changeRoute('borrow-items')}
-        >
-          Back
-        </button>
         <AddFormControl />
       </div>
     );

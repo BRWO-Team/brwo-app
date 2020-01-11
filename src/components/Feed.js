@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNItems } from '../actions/items.action';
-import { changeRoute } from '../actions/router.action';
 import Item from './Item';
 
 class ItemsList extends React.Component {
@@ -12,13 +11,6 @@ class ItemsList extends React.Component {
   render() {
     return (
       <div className='itemsList'>
-        <button
-          type='button'
-          className='btn btn-primary add-btn'
-          onClick={() => this.props.changeRoute('add')}
-        >
-          Add a Listing or Make a Request
-        </button>
         <section className='feed-section'>
           <div className='container'>
             <div className='row justify-content-center'>
@@ -54,8 +46,7 @@ class ItemsList extends React.Component {
 const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
-  getNItems,
-  changeRoute
+  getNItems
 })(ItemsList);
 
 export { ItemsList };

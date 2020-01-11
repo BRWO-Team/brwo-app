@@ -16,7 +16,7 @@ class Footer extends React.Component {
                     <span
                       className='nav-link'
                       onClick={() => this.props.changeRoute('Home')}
-                      style={{cursor: 'pointer'}}
+                      style={{ cursor: 'pointer' }}
                     >
                       Home
                     </span>
@@ -26,7 +26,7 @@ class Footer extends React.Component {
                     <a
                       className='nav-link'
                       onClick={() => this.props.changeRoute('borrow-items')}
-                      style={{cursor: 'pointer'}}
+                      style={{ cursor: 'pointer' }}
                     >
                       Get Started
                     </a>
