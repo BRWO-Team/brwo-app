@@ -6,7 +6,7 @@ class Footer extends React.Component {
   render() {
     return (
       <div>
-        <footer className='pb-4 bg-primary text-light' id='footer'>
+        <footer className='text-light' id='footer'>
           <div className='container'>
             <div className='row mb-5'>
               <div className='col-6 col-lg-3 col-xl-2'>
@@ -25,10 +25,10 @@ class Footer extends React.Component {
                   <li className='nav-item'>
                     <a
                       className='nav-link'
-                      onClick={() => this.props.changeRoute('borrow-items')}
+                      onClick={() => this.props.changeRoute('Borrow')}
                       style={{ cursor: 'pointer' }}
                     >
-                      Get Started
+                      Borrow
                     </a>
                   </li>
                 </ul>

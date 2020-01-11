@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 
 import { changeRoute } from './actions/router.action';
 import { setLogin } from './actions/login.action';
-import { verifyUser } from './actions/firebase.action';
+import { signout, verifyUser } from './actions/firebase.action';
 
 import Drawer from '@material-ui/core/Drawer';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
-import Add from './components/Add';
+import AddFormControl from './components/AddFormControl';
 import Feed from './components/Feed';
 import Login from './components/Login';
 
@@ -33,10 +33,16 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Header />
+        <Header
+          changeRoute={this.props.changeRoute}
+          setLogin={this.props.setLogin}
+          signout={this.props.signout}
+          verifyUser={this.props.verifyUser}
+          user={this.props.firebase.user}
+        />
         <Drawer
           anchor='top'
-          open={this.props.login.isOpen}
+          open={this.props.login.isOpen && !this.props.firebase.user}
           onClose={this.handleCloseLogin}
         >
           <Login />
@@ -46,8 +52,8 @@ class App extends Component {
           <Home />
         )}
 
-        {this.props.router.route === 'borrow-items' && <Feed />}
-        {this.props.router.route === 'add' && <Add />}
+        {this.props.router.route === 'Borrow' && <Feed />}
+        {this.props.router.route === 'Add' && <AddFormControl />}
 
         {this.props.firebase.isFetching ||
           (this.props.items.isFetching && (
@@ -82,7 +88,8 @@ const mapStateToProps = state => ({ ...state });
 export default connect(mapStateToProps, {
   changeRoute,
   setLogin,
-  verifyUser
+  verifyUser,
+  signout
 })(App);
 
 export { App };

@@ -11,9 +11,11 @@ class Item extends React.Component {
         data-category={this.props.category}
       >
         <div className='card'>
-          <div className='card-img-top'>
-            <img src={this.props.image} alt={this.props.title} />
-          </div>
+          {this.props.image.length && (
+            <div className='card-img-top'>
+              <img src={this.props.image[0]} alt={this.props.title} />
+            </div>
+          )}
 
           <div
             className='card-body d-flex flex-column bg-blank'

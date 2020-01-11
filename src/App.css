@@ -1,4 +1,12 @@
-.App {
+#icon-button {
+  outline: none;
+}
+
+#footer {
+  background-color: #3f51b5;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -78,4 +86,4 @@
 
 .add-title {
   font-size: 15px;
-}
+} */

@@ -32,12 +32,13 @@ const getNItems = i => {
 };
 
 const addItem = itemDetails => {
+  console.log(itemDetails);
   return dispatch => {
     dispatch({ type: REQUEST_ADD_ITEM });
     axios
       .post(
         'https://cors-anywhere.herokuapp.com/https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items/postnew',
-        JSON.stringify(itemDetails)
+        itemDetails
       )
       .then(() => {
         dispatch({ type: ADD_ITEM_SUCCESS });

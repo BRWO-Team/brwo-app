@@ -28,7 +28,8 @@ class AddFormControl extends React.Component {
       description: this.state.description,
       price: this.state.price,
       date_time_added: Date(),
-      test: true
+      test: true,
+      user: this.props.firebase.user
     });
   };
 

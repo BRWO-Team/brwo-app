@@ -29,7 +29,7 @@ class ItemsList extends React.Component {
                           color={'bg-primary'}
                           category={item.category}
                           title={item.title}
-                          image={item.images[0]}
+                          image={item.images}
                         />
                       );
                     })}
