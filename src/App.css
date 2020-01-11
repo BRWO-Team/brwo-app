@@ -2,11 +2,6 @@
   outline: none;
 }
 
-.App {
-  min-height: 100vh;
-  position: relative;
-}
-
 .parent {
   display: flex;
 }
@@ -14,9 +9,12 @@
   margin: auto;
 }
 
-.bottom-nav {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
+.main {
+  margin-bottom: 30px;
+}
+
+.bottom {
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 0; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
 }

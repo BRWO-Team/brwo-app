@@ -68,7 +68,7 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position='static'>
+      <AppBar>
         <Toolbar>
           <Typography
             className={classes.title}

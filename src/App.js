@@ -40,28 +40,30 @@ class App extends Component {
           verifyUser={this.props.verifyUser}
           user={this.props.firebase.user}
         />
-        <Drawer
-          anchor='top'
-          open={this.props.login.isOpen && !this.props.firebase.user}
-          onClose={this.handleCloseLogin}
-        >
-          <Login />
-        </Drawer>
+        <div className='main'>
+          <Drawer
+            anchor='top'
+            open={this.props.login.isOpen && !this.props.firebase.user}
+            onClose={this.handleCloseLogin}
+          >
+            <Login />
+          </Drawer>
+          {(this.props.router.route === 'Home' || !this.props.router.route) && (
+            <Home />
+          )}
+          {this.props.router.route === 'Borrow' && <Feed />}
+          {this.props.router.route === 'Add' && <AddFormControl />}
+          {this.props.firebase.isFetching ||
+            (this.props.items.isFetching && (
+              <div className='parent'>
+                <CircularProgress color='secondary' className='child' />
+              </div>
+            ))}
+        </div>
 
-        {(this.props.router.route === 'Home' || !this.props.router.route) && (
-          <Home />
-        )}
-
-        {this.props.router.route === 'Borrow' && <Feed />}
-        {this.props.router.route === 'Add' && <AddFormControl />}
-
-        {this.props.firebase.isFetching ||
-          (this.props.items.isFetching && (
-            <div className='parent'>
-              <CircularProgress color='secondary' className='child' />
-            </div>
-          ))}
-        <Footer />
+        <div className='bottom'>
+          <Footer />
+        </div>
       </div>
     );
   }

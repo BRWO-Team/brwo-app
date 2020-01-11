@@ -22,40 +22,43 @@ class Footer extends React.Component {
   };
   render() {
     return (
-      <div className='bottom-nav'>
-        <BottomNavigation value={this.state.value} onChange={this.handleChange}>
-          <BottomNavigationAction
-            label='Home'
-            value='home'
-            icon={<Home />}
-            onClick={() => this.props.changeRoute('Home')}
-          />
-          <BottomNavigationAction
-            label='Borrow'
-            value='borrow'
-            icon={
-              <FormatListBulletedIcon
-                onClick={() => this.props.changeRoute('Borrow')}
-              />
-            }
-          />
-          <BottomNavigationAction
-            label='Add'
-            value='add'
-            icon={<AddIcon onClick={() => this.props.changeRoute('Add')} />}
-          />
-          <BottomNavigationAction
-            label='Favorites'
-            value='favorites'
-            icon={<FavoriteIcon />}
-          />
-          <BottomNavigationAction
-            label='Account'
-            value='account'
-            icon={<AccountCircleIcon />}
-          />
-        </BottomNavigation>
-      </div>
+      <BottomNavigation
+        styles={{ width: '100%', position: 'fixed', bottom: 0 }}
+        position='static'
+        value={this.state.value}
+        onChange={this.handleChange}
+      >
+        <BottomNavigationAction
+          label='Home'
+          value='home'
+          icon={<Home />}
+          onClick={() => this.props.changeRoute('Home')}
+        />
+        <BottomNavigationAction
+          label='Borrow'
+          value='borrow'
+          icon={
+            <FormatListBulletedIcon
+              onClick={() => this.props.changeRoute('Borrow')}
+            />
+          }
+        />
+        <BottomNavigationAction
+          label='Add'
+          value='add'
+          icon={<AddIcon onClick={() => this.props.changeRoute('Add')} />}
+        />
+        <BottomNavigationAction
+          label='Favorites'
+          value='favorites'
+          icon={<FavoriteIcon />}
+        />
+        <BottomNavigationAction
+          label='Account'
+          value='account'
+          icon={<AccountCircleIcon />}
+        />
+      </BottomNavigation>
     );
   }
 }
