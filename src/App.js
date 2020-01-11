@@ -61,23 +61,7 @@ class App extends Component {
               <CircularProgress color='secondary' className='child' />
             </div>
           ))}
-
         <Footer />
-        <a
-          href='#'
-          className='btn back-to-top btn-primary btn-round'
-          data-smooth-scroll
-          data-aos='fade-up'
-          data-aos-mirror='true'
-          data-aos-once='false'
-        >
-          <img
-            className='icon'
-            src='https://cdn3.iconfinder.com/data/icons/basic-user-interface-application/32/INSTAGRAM_ICON_SETS-29-512.png'
-            alt='arrow-up icon'
-            data-inject-svg
-          />
-        </a>
       </div>
     );
   }

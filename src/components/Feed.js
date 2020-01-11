@@ -1,43 +1,55 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNItems } from '../actions/items.action';
-import Item from './Item';
+
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
+import InfoIcon from '@material-ui/icons/Info';
+
+import './Feed.css';
 
 class ItemsList extends React.Component {
+  constructor(props) {
+    super(props);
+    window.scrollTo(0, 0);
+  }
+
   componentDidMount() {
     this.props.getNItems(12);
   }
 
   render() {
     return (
-      <div className='itemsList'>
-        <section className='feed-section'>
-          <div className='container'>
-            <div className='row justify-content-center'>
-              <div className='col'>
-                <div
-                  className='row'
-                  data-isotope-collection
-                  data-isotope-id='example-2'
-                >
-                  {this.props.items &&
-                    this.props.items.current &&
-                    this.props.items.current.map((item, i) => {
-                      return (
-                        <Item
-                          key={i}
-                          color={'bg-primary'}
-                          category={item.category}
-                          title={item.title}
-                          image={item.images}
-                        />
-                      );
-                    })}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className='root'>
+        <GridList spacing={1} className='gridList'>
+          <GridListTile key='Subheader' cols={2} style={{ height: 'auto' }}>
+            <ListSubheader component='div'>Filters</ListSubheader>
+          </GridListTile>
+          {this.props.items &&
+            this.props.items.current &&
+            this.props.items.current.map((item, i) => {
+              return (
+                <GridListTile cols={i % 3 ? 1 : 2} rows={i % 3 ? 1 : 2} key={i}>
+                  <img src={item.images[0]} alt={item.title} />
+                  <GridListTileBar
+                    title={item.title}
+                    subtitle={<span>{item.description}</span>}
+                    actionIcon={
+                      <IconButton
+                        aria-label={`info about ${item.title}`}
+                        className='icon'
+                      >
+                        <InfoIcon />
+                      </IconButton>
+                    }
+                  />
+                </GridListTile>
+              );
+            })}
+        </GridList>
       </div>
     );
   }
