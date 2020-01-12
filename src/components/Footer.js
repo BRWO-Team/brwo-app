@@ -33,7 +33,7 @@ class Footer extends React.Component {
                   </li>
                 </ul>
               </div>
-              <div className='col-6 col-lg'>
+              <div className='col-6 col-lg-3 col-xl-2'>
                 <h5>Contact</h5>
                 <ul className='list-unstyled'>
                   <li className='mb-3 d-flex'>
