@@ -9,7 +9,7 @@ import Drawer from '@material-ui/core/Drawer';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
-import AddFormControl from './components/AddFormControl';
+import AddListing from './components/AddListing';
 import Feed from './components/Feed';
 import Login from './components/Login';
 
@@ -33,13 +33,16 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {/* <Header
-          changeRoute={this.props.changeRoute}
-          setLogin={this.props.setLogin}
-          signout={this.props.signout}
-          verifyUser={this.props.verifyUser}
-          user={this.props.firebase.user}
-        /> */}
+        {/* {this.props.router.route === 'Home' ||
+          (!this.props.router.route && (
+            <Header
+              changeRoute={this.props.changeRoute}
+              setLogin={this.props.setLogin}
+              signout={this.props.signout}
+              verifyUser={this.props.verifyUser}
+              user={this.props.firebase.user}
+            />
+          ))} */}
         <div className='main'>
           <Drawer
             anchor='top'
@@ -52,10 +55,10 @@ class App extends Component {
             <Home />
           )}
           {this.props.router.route === 'Borrow' && <Feed />}
-          {this.props.router.route === 'Add' && <AddFormControl />}
+          {this.props.router.route === 'Add' && <AddListing />}
           {this.props.firebase.isFetching ||
             (this.props.items.isFetching && (
-              <div className='parent'>
+              <div className='loading'>
                 <CircularProgress color='secondary' className='child' />
               </div>
             ))}

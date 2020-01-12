@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './Item.css';
-
 class Item extends React.Component {
   render() {
     return (
@@ -12,7 +10,7 @@ class Item extends React.Component {
       >
         <div className='card'>
           {this.props.image.length && (
-            <div className='card-img-top'>
+            <div>
               <img src={this.props.image[0]} alt={this.props.title} />
             </div>
           )}

@@ -8,15 +8,9 @@ class Home extends React.Component {
     return (
       <div className='home'>
         <div className='mainDirect'>
-          <section className='text-center' id='demos'>
-            <div className='container'>
-              <div className='row justify-content-center'>
-                <div className='col-xl-9'>
-                  <h2 className='h1'>Join the shared economy!</h2>
-                </div>
-              </div>
-            </div>
-          </section>
+          <div className='text-center'>
+            <h1>BRWO</h1>
+          </div>
           <section className='pt-0'>
             <div className='container'>
               <div className='row' data-aos='fade-up'>

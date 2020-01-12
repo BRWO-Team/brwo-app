@@ -2,13 +2,6 @@
   outline: none;
 }
 
-.parent {
-  display: flex;
-}
-.child {
-  margin: auto;
-}
-
 .main {
   margin-bottom: 30px;
 }
@@ -17,4 +10,28 @@
   position: fixed; /* Set the navbar to fixed position */
   bottom: 0; /* Position the navbar at the bottom of the page */
   width: 100%; /* Full width */
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.paper {
+  padding: 2em;
+}
+
+.question-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.question-text {
+  padding-bottom: 1em;
 }

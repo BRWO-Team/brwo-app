@@ -23,6 +23,7 @@ class Footer extends React.Component {
   render() {
     return (
       <BottomNavigation
+        className='bottom-nav'
         styles={{ width: '100%', position: 'fixed', bottom: 0 }}
         position='static'
         value={this.state.value}
