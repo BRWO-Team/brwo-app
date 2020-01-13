@@ -82,7 +82,7 @@ class AddFormControl extends React.Component {
           </div>
           <div className='row'>
             <div>
-              <h3>Which type are you listing?</h3>
+              <h3>What is it?</h3>
               <div className='form-group'>
                 <div className='custom-control custom-radio mb-2'>
                   <input

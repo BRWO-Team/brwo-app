@@ -33,16 +33,6 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {/* {this.props.router.route === 'Home' ||
-          (!this.props.router.route && (
-            <Header
-              changeRoute={this.props.changeRoute}
-              setLogin={this.props.setLogin}
-              signout={this.props.signout}
-              verifyUser={this.props.verifyUser}
-              user={this.props.firebase.user}
-            />
-          ))} */}
         <div className='main'>
           <Drawer
             anchor='top'

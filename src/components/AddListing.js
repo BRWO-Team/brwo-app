@@ -20,6 +20,18 @@ class AddListing extends React.Component {
           text: 'Category?',
           options: ['Item', 'Service'],
           answer: null
+        },
+        {
+          text: 'Title?',
+          answer: null
+        },
+        {
+          text: 'Description?',
+          answer: null
+        },
+        {
+          text: 'Price?',
+          answer: null
         }
       ],
       index: 0,
@@ -63,6 +75,24 @@ class AddListing extends React.Component {
           />
         )}
         {this.state.index === 1 && (
+          <Question
+            question={this.state.questions[this.state.index]}
+            handleChange={() => this.handleChange}
+          />
+        )}
+        {this.state.index === 2 && (
+          <Question
+            question={this.state.questions[this.state.index]}
+            handleChange={() => this.handleChange}
+          />
+        )}
+        {this.state.index === 3 && (
+          <Question
+            question={this.state.questions[this.state.index]}
+            handleChange={() => this.handleChange}
+          />
+        )}
+        {this.state.index === 4 && (
           <Question
             question={this.state.questions[this.state.index]}
             handleChange={() => this.handleChange}

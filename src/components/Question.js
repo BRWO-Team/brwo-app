@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
 class Question extends React.Component {
   getQuestion = () => {
@@ -28,6 +29,14 @@ class Question extends React.Component {
                 </Grid>
               );
             })}
+          </Grid>
+        );
+      } else {
+        return (
+          <Grid container>
+            <Grid item xs={6}>
+              <TextField id='standard-basic' label='Standard' />
+            </Grid>
           </Grid>
         );
       }

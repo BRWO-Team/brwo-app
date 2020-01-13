@@ -10,8 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
-    color: 'black',
-    backgroundColor: 'white'
+    color: 'white'
   }
 }));
 
@@ -45,22 +44,7 @@ export default function CoolMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => props._changeRoute('Home')}>Home</MenuItem>
-
-        <MenuItem onClick={() => props._changeRoute('Borrow')}>Borrow</MenuItem>
-        {props._user && (
-          <MenuItem onClick={() => props._changeRoute('Add')}>Sell</MenuItem>
-        )}
-        {props._user && (
-          <MenuItem onClick={() => props._changeRoute('My Profile')}>
-            My Profile
-          </MenuItem>
-        )}
-        {props._user ? (
-          <MenuItem onClick={() => props._signout()}>Logout</MenuItem>
-        ) : (
-          <MenuItem onClick={() => props._setLogin(true)}>Login</MenuItem>
-        )}
+        <MenuItem>Filters will be here</MenuItem>
       </Menu>
     </div>
   );
