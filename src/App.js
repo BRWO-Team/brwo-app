@@ -31,49 +31,97 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div className='App'>
-        <HeaderWeb />
-        <Drawer
-          anchor='top'
-          open={this.props.login.isOpen}
-          onClose={this.handleCloseLogin}
-        >
-          <Login />
-        </Drawer>
+    let width = window.innerWidth;
+    console.log(width)
+    if (width > 768) {
+      return (
+        <div className='App'>
+          <HeaderWeb />
+          <Drawer
+            anchor='top'
+            open={this.props.login.isOpen}
+            onClose={this.handleCloseLogin}
+          >
+            <Login />
+          </Drawer>
 
-        {(this.props.router.route === 'Home' || !this.props.router.route) && (
-          <Home />
-        )}
+          {(this.props.router.route === 'Home' || !this.props.router.route) && (
+            <Home />
+          )}
 
-        {this.props.router.route === 'borrow-items' && <FeedWeb />}
-        {this.props.router.route === 'add' && <AddWeb />}
+          {this.props.router.route === 'borrow-items' && <FeedWeb />}
+          {this.props.router.route === 'add' && <AddWeb />}
 
-        {this.props.firebase.isFetching ||
-          (this.props.items.isFetching && (
-            <div className='parent'>
-              <CircularProgress color='secondary' className='child' />
-            </div>
-          ))}
+          {this.props.firebase.isFetching ||
+            (this.props.items.isFetching && (
+              <div className='parent'>
+                <CircularProgress color='secondary' className='child' />
+              </div>
+            ))}
 
-        <FooterWeb />
-        <a
-          href='#'
-          className='btn back-to-top btn-primary btn-round'
-          data-smooth-scroll
-          data-aos='fade-up'
-          data-aos-mirror='true'
-          data-aos-once='false'
-        >
-          <img
-            className='icon'
-            src='https://cdn3.iconfinder.com/data/icons/basic-user-interface-application/32/INSTAGRAM_ICON_SETS-29-512.png'
-            alt='arrow-up icon'
-            data-inject-svg
-          />
-        </a>
-      </div>
-    );
+          <FooterWeb />
+          <a
+            href='#'
+            className='btn back-to-top btn-primary btn-round'
+            data-smooth-scroll
+            data-aos='fade-up'
+            data-aos-mirror='true'
+            data-aos-once='false'
+          >
+            <img
+              className='icon'
+              src='https://cdn3.iconfinder.com/data/icons/basic-user-interface-application/32/INSTAGRAM_ICON_SETS-29-512.png'
+              alt='arrow-up icon'
+              data-inject-svg
+            />
+          </a>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className='App'>
+          <Drawer
+            anchor='top'
+            open={this.props.login.isOpen}
+            onClose={this.handleCloseLogin}
+          >
+            <Login />
+          </Drawer>
+
+          {(this.props.router.route === 'Home' || !this.props.router.route) && (
+            <Home />
+          )}
+
+          {this.props.router.route === 'borrow-items' && <FeedWeb />}
+          {this.props.router.route === 'add' && <AddWeb />}
+
+          {this.props.firebase.isFetching ||
+            (this.props.items.isFetching && (
+              <div className='parent'>
+                <CircularProgress color='secondary' className='child' />
+              </div>
+            ))}
+
+          <FooterWeb />
+          <a
+            href='#'
+            className='btn back-to-top btn-primary btn-round'
+            data-smooth-scroll
+            data-aos='fade-up'
+            data-aos-mirror='true'
+            data-aos-once='false'
+          >
+            <img
+              className='icon'
+              src='https://cdn3.iconfinder.com/data/icons/basic-user-interface-application/32/INSTAGRAM_ICON_SETS-29-512.png'
+              alt='arrow-up icon'
+              data-inject-svg
+            />
+          </a>
+        </div>
+      );
+    }
   }
 }
 
