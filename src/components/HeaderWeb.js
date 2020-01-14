@@ -7,7 +7,7 @@ import { signout } from '../actions/firebase.action';
 
 import './Header.css';
 
-class Header extends Component {
+class HeaderWeb extends Component {
   render() {
     return (
       <div>
@@ -135,6 +135,6 @@ export default connect(mapStateToProps, {
   changeRoute,
   signout,
   setLogin
-})(Header);
+})(HeaderWeb);
 
-export { Header };
+export { HeaderWeb };

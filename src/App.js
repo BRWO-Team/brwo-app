@@ -6,11 +6,11 @@ import { setLogin } from './actions/login.action';
 import { verifyUser } from './actions/firebase.action';
 
 import Drawer from '@material-ui/core/Drawer';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import FooterWeb from './components/FooterWeb';
+import HeaderWeb from './components/HeaderWeb';
 import Home from './components/Home';
-import Add from './components/Add';
-import Feed from './components/Feed';
+import AddWeb from './components/AddWeb';
+import FeedWeb from './components/FeedWeb';
 import Login from './components/Login';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Header />
+        <HeaderWeb />
         <Drawer
           anchor='top'
           open={this.props.login.isOpen}
@@ -46,8 +46,8 @@ class App extends Component {
           <Home />
         )}
 
-        {this.props.router.route === 'borrow-items' && <Feed />}
-        {this.props.router.route === 'add' && <Add />}
+        {this.props.router.route === 'borrow-items' && <FeedWeb />}
+        {this.props.router.route === 'add' && <AddWeb />}
 
         {this.props.firebase.isFetching ||
           (this.props.items.isFetching && (
@@ -56,7 +56,7 @@ class App extends Component {
             </div>
           ))}
 
-        <Footer />
+        <FooterWeb />
         <a
           href='#'
           className='btn back-to-top btn-primary btn-round'

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeRoute } from '../actions/router.action';
 
-class Footer extends React.Component {
+class FooterWeb extends React.Component {
   render() {
     return (
       <div>
@@ -80,6 +80,6 @@ const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
   changeRoute
-})(Footer);
+})(FooterWeb);
 
-export { Footer };
+export { FooterWeb };

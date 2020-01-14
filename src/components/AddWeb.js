@@ -1,9 +1,9 @@
 import React from 'react';
-import AddFormControl from '../components/AddFormControl';
+import AddFormControl from './AddFormControl';
 import { connect } from 'react-redux';
 import { changeRoute } from '../actions/router.action';
 
-class Add extends React.Component {
+class AddWeb extends React.Component {
   render() {
     return (
       <div className='add'>
@@ -17,6 +17,6 @@ const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
   changeRoute
-})(Add);
+})(AddWeb);
 
-export { Add };
+export { AddWeb };

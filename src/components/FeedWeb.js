@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getNItems } from '../actions/items.action';
 import Item from './Item';
 
-class ItemsList extends React.Component {
+class FeedWeb extends React.Component {
   componentDidMount() {
     this.props.getNItems(12);
   }
@@ -47,6 +47,6 @@ const mapStateToProps = state => ({ ...state });
 
 export default connect(mapStateToProps, {
   getNItems
-})(ItemsList);
+})(FeedWeb);
 
-export { ItemsList };
+export { FeedWeb };
