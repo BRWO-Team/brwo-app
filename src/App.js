@@ -6,6 +6,8 @@ import { setLogin } from './actions/login.action';
 import { signout, verifyUser } from './actions/firebase.action';
 
 import Drawer from '@material-ui/core/Drawer';
+
+import Account from './components/Account';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -46,6 +48,7 @@ class App extends Component {
           )}
           {this.props.router.route === 'Borrow' && <Feed />}
           {this.props.router.route === 'Add' && <AddListing />}
+          {this.props.router.route === 'Account' && <Account />}
           {this.props.firebase.isFetching ||
             (this.props.items.isFetching && (
               <div className='loading'>

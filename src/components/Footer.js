@@ -57,7 +57,11 @@ class Footer extends React.Component {
         <BottomNavigationAction
           label='Account'
           value='account'
-          icon={<AccountCircleIcon />}
+          icon={
+            <AccountCircleIcon
+              onClick={() => this.props.changeRoute('Account')}
+            />
+          }
         />
       </BottomNavigation>
     );
