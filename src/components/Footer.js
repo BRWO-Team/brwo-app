@@ -38,16 +38,14 @@ class Footer extends React.Component {
         <BottomNavigationAction
           label='Borrow'
           value='borrow'
-          icon={
-            <FormatListBulletedIcon
-              onClick={() => this.props.changeRoute('Borrow')}
-            />
-          }
+          icon={<FormatListBulletedIcon />}
+          onClick={() => this.props.changeRoute('Borrow')}
         />
         <BottomNavigationAction
           label='Add'
           value='add'
-          icon={<AddIcon onClick={() => this.props.changeRoute('Add')} />}
+          icon={<AddIcon />}
+          onClick={() => this.props.changeRoute('Add')}
         />
         <BottomNavigationAction
           label='Favorites'
@@ -57,11 +55,8 @@ class Footer extends React.Component {
         <BottomNavigationAction
           label='Account'
           value='account'
-          icon={
-            <AccountCircleIcon
-              onClick={() => this.props.changeRoute('Account')}
-            />
-          }
+          icon={<AccountCircleIcon />}
+          onClick={() => this.props.changeRoute('Account')}
         />
       </BottomNavigation>
     );

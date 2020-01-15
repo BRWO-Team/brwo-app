@@ -36,19 +36,18 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='main'>
-          <Drawer
+          {/* <Drawer
             anchor='top'
-            open={this.props.login.isOpen && !this.props.firebase.user}
+            open={this.props.login.isOpen}
             onClose={this.handleCloseLogin}
           >
             <Login />
-          </Drawer>
-          {(this.props.router.route === 'Home' || !this.props.router.route) && (
-            <Home />
-          )}
+          </Drawer> */}
+          {this.props.router.route === 'Home' && <Home />}
           {this.props.router.route === 'Borrow' && <Feed />}
           {this.props.router.route === 'Add' && <AddListing />}
           {this.props.router.route === 'Account' && <Account />}
+
           {this.props.firebase.isFetching ||
             (this.props.items.isFetching && (
               <div className='loading'>

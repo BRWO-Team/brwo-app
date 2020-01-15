@@ -22,28 +22,32 @@ class Account extends React.Component {
   handleSelect = tab => {
     this.setState({ selected: tab });
   };
+
   render() {
     return (
       <div>
         {this.state.selected === 'Menu' && (
           <div>
-            <Slide in={true} direction='left'>
-              <List>
-                <ListItem
-                  button
-                  onClick={() => this.handleSelect('My Listings')}
-                >
-                  <ListItemText inset primary='My Listings' />
-                </ListItem>
-                <ListItem button onClick={() => this.handleSelect('Settings')}>
-                  <ListItemText inset primary='Settings' />
-                </ListItem>
-              </List>
-            </Slide>
+            <ListItem button onClick={() => this.handleSelect('My Listings')}>
+              <ListItemText inset primary='My Listings' />
+            </ListItem>
+            <ListItem button onClick={() => this.handleSelect('Settings')}>
+              <ListItemText inset primary='Settings' />
+            </ListItem>
           </div>
         )}
-
         {this.state.selected === 'My Listings' && (
+          <Slide in={true} direction='right'>
+            <div>
+              <ListItem button onClick={() => this.handleSelect('Menu')}>
+                <ListItemIcon>
+                  <ChevronLeft />
+                </ListItemIcon>
+              </ListItem>
+            </div>
+          </Slide>
+        )}
+        {this.state.selected === 'Settings' && (
           <Slide in={true} direction='right'>
             <div>
               <ListItem button onClick={() => this.handleSelect('Menu')}>
@@ -61,8 +65,6 @@ class Account extends React.Component {
 
 const mapStateToProps = state => ({ ...state });
 
-export default connect(mapStateToProps, {
-  changeRoute
-})(Account);
+export default connect(mapStateToProps)(Account);
 
 export { Account };
