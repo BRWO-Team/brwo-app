@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { changeRoute } from './actions/router.action';
-import { setLogin } from './actions/login.action';
-import { verifyUser } from './actions/firebase.action';
+import { changeRoute } from '../../actions/router.action';
+import { setLogin } from '../../actions/login.action';
+import { verifyUser } from '../../actions/firebase.action';
 
 import Drawer from '@material-ui/core/Drawer';
-import FooterWeb from './components/Web/FooterWeb';
-import HeaderWeb from './components/Web/HeaderWeb';
-import Home from './components/Web/Home';
-import AddWeb from './components/Web/AddWeb';
-import FeedWeb from './components/Web/FeedWeb';
-import Login from './components/Web/Login';
+import FooterWeb from './FooterWeb';
+import HeaderWeb from './HeaderWeb';
+import Home from './Home';
+import AddWeb from './AddWeb';
+import FeedWeb from './FeedWeb';
+import Login from './Login';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 
