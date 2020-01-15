@@ -1,7 +1,7 @@
 import React from 'react';
 import AddFormControl from './AddFormControl';
 import { connect } from 'react-redux';
-import { changeRoute } from '../actions/router.action';
+import { changeRoute } from '../../actions/router.action';
 
 class AddWeb extends React.Component {
   render() {

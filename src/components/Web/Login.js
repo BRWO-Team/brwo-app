@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { createAccount, signin, signout } from '../actions/firebase.action';
+import { createAccount, signin, signout } from '../../actions/firebase.action';
 
-import { changeRoute } from '../actions/router.action';
+import { changeRoute } from '../../actions/router.action';
 import Home from './Home';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';

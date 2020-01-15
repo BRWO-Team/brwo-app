@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNItems } from '../actions/items.action';
+import { getNItems } from '../../actions/items.action';
 import Item from './Item';
 
 class FeedWeb extends React.Component {

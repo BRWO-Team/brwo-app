@@ -1,8 +1,8 @@
 import React from 'react';
 import AddFormListing from './AddFormListing';
 import { connect } from 'react-redux';
-import { changeRoute } from '../actions/router.action';
-import { addItem } from '../actions/items.action';
+import { changeRoute } from '../../actions/router.action';
+import { addItem } from '../../actions/items.action';
 
 class AddFormControl extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeRoute } from '../actions/router.action';
+import { changeRoute } from '../../actions/router.action';
 
 class FooterWeb extends React.Component {
   render() {

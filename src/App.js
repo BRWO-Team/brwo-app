@@ -6,12 +6,12 @@ import { setLogin } from './actions/login.action';
 import { verifyUser } from './actions/firebase.action';
 
 import Drawer from '@material-ui/core/Drawer';
-import FooterWeb from './components/FooterWeb';
-import HeaderWeb from './components/HeaderWeb';
-import Home from './components/Home';
-import AddWeb from './components/AddWeb';
-import FeedWeb from './components/FeedWeb';
-import Login from './components/Login';
+import FooterWeb from './components/Web/FooterWeb';
+import HeaderWeb from './components/Web/HeaderWeb';
+import Home from './components/Web/Home';
+import AddWeb from './components/Web/AddWeb';
+import FeedWeb from './components/Web/FeedWeb';
+import Login from './components/Web/Login';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 

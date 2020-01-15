@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { changeRoute } from '../actions/router.action';
-import { setLogin } from '../actions/login.action';
-import { signout } from '../actions/firebase.action';
+import { changeRoute } from '../../actions/router.action';
+import { setLogin } from '../../actions/login.action';
+import { signout } from '../../actions/firebase.action';
 
 import './Header.css';
 
