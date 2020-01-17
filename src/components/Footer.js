@@ -24,7 +24,12 @@ class Footer extends React.Component {
     return (
       <BottomNavigation
         className='bottom-nav'
-        styles={{ width: '100%', position: 'fixed', bottom: 0 }}
+        style={{
+          width: '100%',
+          position: 'fixed',
+          bottom: 0,
+          backgroundColor: '#121212'
+        }}
         position='static'
         value={this.state.value}
         onChange={this.handleChange}
@@ -33,28 +38,33 @@ class Footer extends React.Component {
           label='Home'
           value='home'
           icon={<Home />}
+          style={{ color: '#f2f2f2' }}
           onClick={() => this.props.changeRoute('Home')}
         />
         <BottomNavigationAction
           label='Borrow'
           value='borrow'
           icon={<FormatListBulletedIcon />}
+          style={{ color: '#f2f2f2' }}
           onClick={() => this.props.changeRoute('Borrow')}
         />
         <BottomNavigationAction
           label='Add'
           value='add'
           icon={<AddIcon />}
+          style={{ color: '#f2f2f2' }}
           onClick={() => this.props.changeRoute('Add')}
         />
         <BottomNavigationAction
           label='Favorites'
           value='favorites'
+          style={{ color: '#f2f2f2' }}
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
           label='Account'
           value='account'
+          style={{ color: '#f2f2f2' }}
           icon={<AccountCircleIcon />}
           onClick={() => this.props.changeRoute('Account')}
         />

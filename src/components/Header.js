@@ -68,14 +68,9 @@ export default function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar>
+      <AppBar style={{ backgroundColor: '#121212' }}>
         <Toolbar>
-          <Typography
-            className={classes.title}
-            variant='h4'
-            noWrap
-            onClick={() => props.changeRoute('Home')}
-          >
+          <Typography className={classes.title} variant='h4' noWrap>
             BRWO
           </Typography>
           <div className={classes.search}>
@@ -92,13 +87,7 @@ export default function Header(props) {
             />
           </div>
           <div className={classes.menuButton}>
-            <CoolMenu
-              _changeRoute={props.changeRoute}
-              _setLogin={props.setLogin}
-              _signout={props.signout}
-              _verifyUser={props.verifyUser}
-              _user={props.user}
-            />
+            <CoolMenu />
           </div>
         </Toolbar>
       </AppBar>

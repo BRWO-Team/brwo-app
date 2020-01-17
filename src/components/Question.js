@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -15,9 +14,9 @@ class Question extends React.Component {
       if (this.props.question.options) {
         return (
           <Grid container>
-            {this.props.question.options.map(item => {
+            {this.props.question.options.map((item, y) => {
               return (
-                <Grid item xs={6}>
+                <Grid item xs={6} key={y}>
                   <Button
                     value={item}
                     variant='contained'
@@ -34,8 +33,8 @@ class Question extends React.Component {
       } else {
         return (
           <Grid container>
-            <Grid item xs={6}>
-              <TextField id='standard-basic' label='Standard' />
+            <Grid item xs={12}>
+              <TextField style={{ backgroundColor: '#d9d9d9' }} label='Title' />
             </Grid>
           </Grid>
         );
@@ -48,12 +47,16 @@ class Question extends React.Component {
         <Slide direction='right' in={true}>
           <div>
             {this.props.question && (
-              <Paper className='paper' elevation={3}>
-                <Typography variant='h4' className='question-text'>
+              <div>
+                <Typography
+                  variant='h4'
+                  style={{ color: '#d9d9d9', fontFamily: 'Arial' }}
+                  className='question-text'
+                >
                   {this.props.question.text}
                 </Typography>
                 {this.getQuestion()}
-              </Paper>
+              </div>
             )}
           </div>
         </Slide>

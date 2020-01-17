@@ -21,7 +21,9 @@
 }
 
 .paper {
+  margin: 1em 0 0 0;
   padding: 2em;
+  background-color: #121212;
 }
 
 .question-container {

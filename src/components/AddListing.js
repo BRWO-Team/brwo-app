@@ -12,11 +12,6 @@ class AddListing extends React.Component {
     this.state = {
       questions: [
         {
-          text: 'Which are you making?',
-          options: ['Listing', 'Request'],
-          answer: null
-        },
-        {
           text: 'Category?',
           options: ['Item', 'Service'],
           answer: null

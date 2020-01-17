@@ -5,15 +5,11 @@ import { changeRoute } from './actions/router.action';
 import { setLogin } from './actions/login.action';
 import { signout, verifyUser } from './actions/firebase.action';
 
-import Drawer from '@material-ui/core/Drawer';
-
 import Account from './components/Account';
 import Footer from './components/Footer';
-import Header from './components/Header';
 import Home from './components/Home';
 import AddListing from './components/AddListing';
 import Feed from './components/Feed';
-import Login from './components/Login';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 
