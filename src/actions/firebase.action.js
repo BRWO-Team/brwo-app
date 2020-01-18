@@ -89,4 +89,23 @@ const verifyUser = () => {
   };
 };
 
+const updateUser = user => {
+  // return dispatch => {
+  //   dispatch({ type: REQUEST_CREATE_ACCOUNT });
+  //   firebase
+  //     .auth()
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then(res => {
+  //       dispatch({ type: CREATE_ACCOUNT_SUCCESS });
+  //       res.user.updateProfile({
+  //         displayName: name
+  //       });
+  //       dispatch({ type: VERIFY_USER_SUCCESS, payload: { res } });
+  //     })
+  //     .catch(error => {
+  //       dispatch({ type: CREATE_ACCOUNT_FAILURE, error });
+  //     });
+  // };
+};
+
 export { clearFirebase, createAccount, signin, signout, verifyUser };

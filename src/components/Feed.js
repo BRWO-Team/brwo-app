@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { getNItems } from '../actions/items.action';
 
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from '@material-ui/core/IconButton';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Slide from '@material-ui/core/Slide';
@@ -18,7 +20,6 @@ import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import Header from './Header';
 
 import './Feed.css';
-import { Typography } from '@material-ui/core';
 
 class ItemsList extends React.Component {
   constructor(props) {
@@ -54,12 +55,19 @@ class ItemsList extends React.Component {
   };
 
   openDetails = item => {
-    console.log(item);
     this.setState({ item: item });
   };
 
   resetDetail = () => {
     this.setState({ item: null });
+  };
+
+  addToFavorites = () => {
+    console.log('added');
+  };
+
+  getColor = item => {
+    return { color: 'white' };
   };
 
   render() {
@@ -79,13 +87,23 @@ class ItemsList extends React.Component {
               this.props.items.current &&
               this.props.items.current.map((item, i) => {
                 return (
-                  <GridListTile
-                    cols={1}
-                    key={i}
-                    onClick={() => this.openDetails(item)}
-                  >
-                    <img src={item.images[0]} alt={item.title} />
-                    <GridListTileBar title={item.title} />
+                  <GridListTile cols={1} key={i}>
+                    <img
+                      onClick={() => this.openDetails(item)}
+                      src={item.images[0]}
+                      alt={item.title}
+                    />
+                    <GridListTileBar
+                      title={item.title}
+                      titlePosition='bottom'
+                      actionIcon={
+                        <IconButton style={this.getColor(item)}>
+                          <FavoriteBorderIcon />
+                        </IconButton>
+                      }
+                      actionPosition='right'
+                      onClick={() => this.addToFavorites(item)}
+                    />
                   </GridListTile>
                 );
               })}
@@ -105,14 +123,6 @@ class ItemsList extends React.Component {
                 </ListItemIcon>
               </ListItem>
               <ItemDetail item={this.state.item} />
-              {/* <div style={{ color: '#f2f2f2', paddingLeft: '4em' }}>
-                <h2>{this.state.item.title}</h2>
-                <img
-                  src={this.state.item.images[0]}
-                  alt={this.state.item.title}
-                />
-                <h4>{this.state.item.description}</h4>
-              </div> */}
             </Grid>
           </Slide>
         )}

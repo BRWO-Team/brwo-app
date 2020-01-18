@@ -32,7 +32,6 @@ const getNItems = i => {
 };
 
 const addItem = itemDetails => {
-  console.log(itemDetails);
   return dispatch => {
     dispatch({ type: REQUEST_ADD_ITEM });
     axios

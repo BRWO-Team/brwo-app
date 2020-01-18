@@ -95,8 +95,8 @@ class Account extends React.Component {
                   </ListItemText>
                 </ListItem>
               </Grid>
-              <Grid item xs={12}>
-                <TableContainer style={{ padding: '2em' }}>
+              <Grid item xs={12} style={{ padding: '4em' }}>
+                <TableContainer>
                   <Table>
                     <TableBody>
                       <TableRow>
