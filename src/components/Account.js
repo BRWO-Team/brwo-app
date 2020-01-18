@@ -69,6 +69,16 @@ class Account extends React.Component {
                   <ChevronLeft />
                 </ListItemIcon>
               </ListItem>
+              <Grid item xs={12}>
+                <div
+                  style={{
+                    color: '#f2f2f2',
+                    paddingLeft: '5em'
+                  }}
+                >
+                  Doesn't look like you have any listings yet
+                </div>
+              </Grid>
             </div>
           </Slide>
         )}
@@ -80,7 +90,7 @@ class Account extends React.Component {
                   <ListItemIcon style={{ color: '#BB86FC' }}>
                     <ChevronLeft />
                   </ListItemIcon>
-                  <ListItemText style={{ color: 'white' }}>
+                  <ListItemText style={{ color: '#f2f2f2' }}>
                     Account
                   </ListItemText>
                 </ListItem>
@@ -97,7 +107,7 @@ class Account extends React.Component {
                         >
                           Name
                         </TableCell>
-                        <TableCell align='right' style={{ color: 'white' }}>
+                        <TableCell align='right' style={{ color: '#f2f2f2' }}>
                           {this.props.firebase.user.displayName}
                         </TableCell>
                       </TableRow>
@@ -109,7 +119,7 @@ class Account extends React.Component {
                         >
                           Account Number
                         </TableCell>
-                        <TableCell align='right' style={{ color: 'white' }}>
+                        <TableCell align='right' style={{ color: '#f2f2f2' }}>
                           {this.props.firebase.user.uid}
                         </TableCell>
                       </TableRow>
@@ -121,7 +131,7 @@ class Account extends React.Component {
                         >
                           Email
                         </TableCell>
-                        <TableCell align='right' style={{ color: 'white' }}>
+                        <TableCell align='right' style={{ color: '#f2f2f2' }}>
                           {this.props.firebase.user.email}
                         </TableCell>
                       </TableRow>
@@ -133,7 +143,7 @@ class Account extends React.Component {
                         >
                           Address
                         </TableCell>
-                        <TableCell align='right' style={{ color: 'white' }}>
+                        <TableCell align='right' style={{ color: '#f2f2f2' }}>
                           1234 Fake St, Farmville, PA 91210
                           <ChevronRight style={{ color: '#BB86FC' }} />
                         </TableCell>
@@ -147,7 +157,7 @@ class Account extends React.Component {
                           Phone Number
                         </TableCell>
 
-                        <TableCell align='right' style={{ color: 'white' }}>
+                        <TableCell align='right' style={{ color: '#f2f2f2' }}>
                           666-420-6969
                           <ChevronRight style={{ color: '#BB86FC' }} />
                         </TableCell>
