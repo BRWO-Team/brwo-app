@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 
 import { addItem } from '../actions/items.action';
 
+import Button from '@material-ui/core/Button';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import Question from './Question';
 import Slide from '@material-ui/core/Slide';
+
+import ImageUploader from 'react-images-upload';
 
 class AddListing extends React.Component {
   constructor(props) {
@@ -18,16 +22,16 @@ class AddListing extends React.Component {
           answer: null
         },
         {
-          text: 'Describe your item',
+          text: 'Title for your item',
           answer: null,
           label: 'Title'
         },
         {
-          text: 'Description?',
+          text: 'Give some details',
           answer: null
         },
         {
-          text: 'Price?',
+          text: 'Price',
           answer: null
         }
       ],
@@ -38,12 +42,24 @@ class AddListing extends React.Component {
       description: '',
       categories: [],
       price: 0,
-      images: []
+      images: [],
+      completed: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goBack = this.goBack.bind(this);
+    this.onDrop = this.onDrop.bind(this);
+  }
+
+  onDrop(picture) {
+    this.setState({
+      images: this.state.images.concat(picture),
+      index: 5
+    });
   }
 
   handleChange = event => {
+    console.log(event);
+    console.log(event.target.value);
     let tempQuestions = [...this.state.questions];
     tempQuestions[this.state.index].answer = event.target.value;
     this.setState({ questions: tempQuestions, index: this.state.index + 1 });
@@ -62,20 +78,41 @@ class AddListing extends React.Component {
     });
   };
 
+  goBack = () => {
+    this.setState({ index: this.state.index - 1 });
+  };
+
   render() {
     return (
       <div>
-        <Slide
-          direction='right'
-          style={{
-            textAlign: 'center',
-            justifyContent: 'center',
-            color: '#d9d9d9',
-            marginTop: '1em'
-          }}
-          in={true}
-        >
-          <div>{'Tell us about it'}</div>
+        <Slide direction='right' in={true}>
+          <div>
+            <div style={{ minHeight: '3em' }}>
+              {this.state.index > 0 && (
+                <Button
+                  style={{
+                    color: '#d9d9d9',
+                    marginLeft: '1em'
+                  }}
+                  value={this.state.myInput}
+                  onClick={this.goBack}
+                >
+                  <ChevronLeft style={{ color: '#BB86FC' }} />
+                  {' back'}
+                </Button>
+              )}
+            </div>
+
+            <div
+              style={{
+                textAlign: 'center',
+                justifyContent: 'center',
+                color: '#d9d9d9'
+              }}
+            >
+              {'Tell us about it'}
+            </div>
+          </div>
         </Slide>
 
         {this.state.index === 0 && (
@@ -103,10 +140,26 @@ class AddListing extends React.Component {
           />
         )}
         {this.state.index === 4 && (
-          <Question
-            question={this.state.questions[this.state.index]}
-            handleChange={() => this.handleChange}
-          />
+          <div>
+            <ImageUploader
+              withIcon={true}
+              buttonText='Add some photos'
+              onChange={this.onDrop}
+              imgExtension={['.jpg', 'jpeg', '.gif', '.png']}
+              maxFileSize={5242880}
+            />
+          </div>
+        )}
+        {this.state.index === 5 && (
+          <div>
+            {this.state.questions.map(item => {
+              return (
+                <div style={{ color: '#f2f2f2', paddingLeft: '4em' }}>
+                  {item.text + ': ' + item.answer}
+                </div>
+              );
+            })}
+          </div>
         )}
       </div>
     );

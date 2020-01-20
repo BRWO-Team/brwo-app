@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
@@ -16,10 +17,10 @@ class Question extends React.Component {
     this.state = {
       myInput: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
   }
 
-  handleChange = event => {
+  handleTextChange = event => {
     this.setState({ myInput: event.target.value });
   };
 
@@ -27,26 +28,25 @@ class Question extends React.Component {
     if (this.props.question) {
       if (this.props.question.options) {
         return (
-          <Grid container>
+          <React.Fragment>
             {this.props.question.options.map((item, y) => {
+              console.log(item);
               return (
-                <Grid item xs={12} key={y}>
-                  <Button
-                    fullWidth={true}
-                    value={item}
-                    style={{
-                      color: '#d9d9d9',
-                      textAlign: 'left',
-                      justifyContent: 'left'
-                    }}
-                    onClick={this.props.handleChange(item)}
-                  >
-                    {item}
-                  </Button>
-                </Grid>
+                <ListItem
+                  button
+                  value={item}
+                  style={{
+                    color: '#d9d9d9',
+                    textAlign: 'left',
+                    justifyContent: 'left'
+                  }}
+                  onClick={this.props.handleChange()}
+                >
+                  {item}
+                </ListItem>
               );
             })}
-          </Grid>
+          </React.Fragment>
         );
       } else {
         return (
