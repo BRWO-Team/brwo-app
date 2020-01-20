@@ -32,18 +32,31 @@ const getNItems = i => {
 };
 
 const addItem = itemDetails => {
+  let data = new FormData();
+  let images = itemDetails['images'];
+  let imageCount = 0;
+  delete itemDetails['images'];
+
+  data.set('data', JSON.stringify(itemDetails));
+  for (let i = 0; i < images.length; i++) {
+    data.append('image' + (i + 1).toString(), images[i], images[i].name);
+    imageCount += 1;
+  }
+  data.set('imageCount', imageCount);
+
   return dispatch => {
     dispatch({ type: REQUEST_ADD_ITEM });
     axios
       .post(
-        'https://cors-anywhere.herokuapp.com/https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items/postnew',
-        JSON.stringify(itemDetails)
+        'https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items',
+        data
       )
       .then(() => {
         dispatch({ type: ADD_ITEM_SUCCESS });
       })
       .catch(error => {
         dispatch({ type: ADD_ITEM_ERROR });
+        console.log(error);
       });
   };
 };

@@ -71,7 +71,7 @@ class AddFormListing extends React.Component {
             <ImageUploader
               withIcon={false}
               buttonText='Choose images'
-              onChange={this.onDrop}
+              onChange={this.props.handleImage}
               imgExtension={['.jpg', '.gif', '.png']}
               maxFileSize={5242880}
               withPreview={true}

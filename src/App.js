@@ -40,7 +40,8 @@ class App extends Component {
 
   render() {
     let width = window.innerWidth;
-    console.log(width);
+    width = 769
+    // console.log(width);
     if (width > 768) {
       return (
         <div className='App'>
@@ -89,6 +90,7 @@ class App extends Component {
       return (
         <div className='App'>
           <div className='main'>
+            <HeaderWeb />
             <Drawer
               anchor='top'
               open={this.props.login.isOpen && !this.props.firebase.user}

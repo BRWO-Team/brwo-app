@@ -18,6 +18,17 @@ class AddFormControl extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleImageSubmit = this.handleImageSubmit.bind(this);
+  }
+
+  handleInputChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleImageSubmit(pictureFiles) {
+    this.setState({
+      images: pictureFiles
+    });
   }
 
   handleSubmit = () => {
@@ -27,14 +38,35 @@ class AddFormControl extends React.Component {
       title: this.state.title,
       description: this.state.description,
       price: this.state.price,
-      date_time_added: Date(),
+      images: this.state.images,
       test: true
     });
   };
 
-  handleInputChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  // imageSubmit = image => {
+  //   let data = new FormData();
+  //   data.append('image', image, image.name);
+
+  //   axios
+  //     .post('http://127.0.0.1:5000/api/v1.0/items/submitimage', data, {
+  //       headers: {
+  //         accept: 'application/json',
+  //         'Accept-Language': 'en-US,en;q=0.8',
+  //         'Content-Type': `multipart/form-data; boundary=${data._boundary}`
+  //       }
+  //     })
+  //     .then(response => {
+  //       console.log(response.data.url);
+  //       console.log(this.state.imageURLS);
+  //       this.setState({
+  //         imageURLS: this.state.imageURLS.push(response.data.url)
+  //       });
+  //       // return response.data.url;
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
 
   render() {
     return (
@@ -117,6 +149,7 @@ class AddFormControl extends React.Component {
           <AddFormListing
             type={this.state.listingType}
             handleChange={this.handleInputChange}
+            handleImage={this.handleImageSubmit}
           />
         )}
 
