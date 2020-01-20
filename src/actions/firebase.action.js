@@ -11,7 +11,10 @@ import {
   SIGN_OUT_FAILURE,
   REQUEST_VERIFY_USER,
   VERIFY_USER_SUCCESS,
-  VERIFY_USER_NOONE_LOGGED_IN
+  VERIFY_USER_NOONE_LOGGED_IN,
+  REQUEST_UPDATE_USER,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR
 } from './types';
 
 const config = {
@@ -91,21 +94,26 @@ const verifyUser = () => {
 
 const updateUser = user => {
   // return dispatch => {
-  //   dispatch({ type: REQUEST_CREATE_ACCOUNT });
-  //   firebase
-  //     .auth()
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then(res => {
-  //       dispatch({ type: CREATE_ACCOUNT_SUCCESS });
-  //       res.user.updateProfile({
-  //         displayName: name
-  //       });
-  //       dispatch({ type: VERIFY_USER_SUCCESS, payload: { res } });
+  //   dispatch({ type: REQUEST_UPDATE_USER });
+  //   axios
+  //     .post(
+  //       'https://cors-anywhere.herokuapp.com/https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/user/update',
+  //       user
+  //     )
+  //     .then(() => {
+  //       dispatch({ type: UPDATE_USER_SUCCESS });
   //     })
   //     .catch(error => {
-  //       dispatch({ type: CREATE_ACCOUNT_FAILURE, error });
+  //       dispatch({ type: UPDATE_USER_ERROR });
   //     });
   // };
 };
 
-export { clearFirebase, createAccount, signin, signout, verifyUser };
+export {
+  clearFirebase,
+  createAccount,
+  signin,
+  signout,
+  verifyUser,
+  updateUser
+};

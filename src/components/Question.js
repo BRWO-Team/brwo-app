@@ -3,12 +3,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '@material-ui/core/Button';
+import ChevronRight from '@material-ui/icons/ChevronRight';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 class Question extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      myInput: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange = event => {
+    this.setState({ myInput: event.target.value });
+  };
+
   getQuestion = () => {
     if (this.props.question) {
       if (this.props.question.options) {
@@ -16,11 +30,15 @@ class Question extends React.Component {
           <Grid container>
             {this.props.question.options.map((item, y) => {
               return (
-                <Grid item xs={6} key={y}>
+                <Grid item xs={12} key={y}>
                   <Button
+                    fullWidth={true}
                     value={item}
-                    variant='contained'
-                    className='question'
+                    style={{
+                      color: '#d9d9d9',
+                      textAlign: 'left',
+                      justifyContent: 'left'
+                    }}
                     onClick={this.props.handleChange(item)}
                   >
                     {item}
@@ -34,7 +52,24 @@ class Question extends React.Component {
         return (
           <Grid container>
             <Grid item xs={12}>
-              <TextField style={{ backgroundColor: '#d9d9d9' }} label='Title' />
+              <input
+                onChange={this.handleChange}
+                label={this.props.question.label}
+                color='white'
+                style={{
+                  backgroundColor: '#666666',
+                  color: '#d9d9d9',
+                  width: '25%',
+                  padding: '.5em',
+                  fontSize: '1em'
+                }}
+              />
+              <Button
+                value={this.state.myInput}
+                onClick={this.props.handleChange()}
+              >
+                <ChevronRight style={{ color: '#BB86FC' }} />
+              </Button>
             </Grid>
           </Grid>
         );
@@ -43,20 +78,40 @@ class Question extends React.Component {
   };
   render() {
     return (
-      <div className='question-container'>
+      <div>
         <Slide direction='right' in={true}>
           <div>
             {this.props.question && (
-              <div>
-                <Typography
-                  variant='h4'
-                  style={{ color: '#d9d9d9', fontFamily: 'Arial' }}
-                  className='question-text'
+              <Grid
+                container
+                direction='row'
+                alignItems='center'
+                style={{ paddingLeft: '1em' }}
+              >
+                <Grid item>
+                  <Typography
+                    style={{
+                      color: '#d9d9d9',
+                      display: 'inline',
+                      paddingRight: '.5em'
+                    }}
+                    variant='overline'
+                  >
+                    {this.props.question.text}
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  style={{
+                    color: '#BB86FC',
+                    display: 'inline'
+                  }}
                 >
-                  {this.props.question.text}
-                </Typography>
+                  <HelpOutlineIcon />
+                </Grid>
+
                 {this.getQuestion()}
-              </div>
+              </Grid>
             )}
           </div>
         </Slide>

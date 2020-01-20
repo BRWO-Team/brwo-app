@@ -42,7 +42,7 @@ class Account extends React.Component {
               style={{ paddingLeft: '2em', paddingTop: '2em' }}
             >
               <ListItem button onClick={() => this.handleSelect('My Listings')}>
-                <ListItemIcon style={{ color: '#f2f2f2' }}>
+                <ListItemIcon style={{ color: '#BB86FC' }}>
                   <ListIcon />
                 </ListItemIcon>
                 <ListItemText
@@ -53,7 +53,7 @@ class Account extends React.Component {
             </Grid>
             <Grid item xs={12} style={{ paddingLeft: '2em' }}>
               <ListItem button onClick={() => this.handleSelect('Settings')}>
-                <ListItemIcon style={{ color: '#f2f2f2' }}>
+                <ListItemIcon style={{ color: '#BB86FC' }}>
                   <SettingsIcon />
                 </ListItemIcon>
                 <ListItemText style={{ color: '#f2f2f2' }} primary='Settings' />

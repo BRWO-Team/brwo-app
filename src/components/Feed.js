@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNItems } from '../actions/items.action';
+import { updateUser } from '../actions/firebase.action';
 
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -62,11 +63,14 @@ class ItemsList extends React.Component {
     this.setState({ item: null });
   };
 
-  addToFavorites = () => {
-    console.log('added');
+  addToFavorites = key => {
+    if (this.props.firebase.favorites.includes(key)) {
+      this.updateUser(key, this.props.firebase.user.uid);
+    }
   };
 
   getColor = item => {
+    // if (this.props.firebase.favorites.includes(key)) return { color: 'red' };
     return { color: 'white' };
   };
 
@@ -135,7 +139,8 @@ const mapStateToProps = state => ({ ...state });
 
 export default withWidth()(
   connect(mapStateToProps, {
-    getNItems
+    getNItems,
+    updateUser
   })(ItemsList)
 );
 

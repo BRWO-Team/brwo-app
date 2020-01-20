@@ -37,3 +37,7 @@
 .question-text {
   padding-bottom: 1em;
 }
+
+input {
+  color: '#d9d9d9';
+}

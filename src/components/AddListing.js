@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { addItem } from '../actions/items.action';
 
 import Question from './Question';
+import Slide from '@material-ui/core/Slide';
 
 class AddListing extends React.Component {
   constructor(props) {
@@ -12,13 +13,14 @@ class AddListing extends React.Component {
     this.state = {
       questions: [
         {
-          text: 'Category?',
+          text: 'Select Category',
           options: ['Item', 'Service'],
           answer: null
         },
         {
-          text: 'Title?',
-          answer: null
+          text: 'Describe your item',
+          answer: null,
+          label: 'Title'
         },
         {
           text: 'Description?',
@@ -63,6 +65,19 @@ class AddListing extends React.Component {
   render() {
     return (
       <div>
+        <Slide
+          direction='right'
+          style={{
+            textAlign: 'center',
+            justifyContent: 'center',
+            color: '#d9d9d9',
+            marginTop: '1em'
+          }}
+          in={true}
+        >
+          <div>{'Tell us about it'}</div>
+        </Slide>
+
         {this.state.index === 0 && (
           <Question
             question={this.state.questions[this.state.index]}
