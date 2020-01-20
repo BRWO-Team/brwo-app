@@ -36,12 +36,6 @@ class AddListing extends React.Component {
         }
       ],
       index: 0,
-      listingType: '',
-      itemType: '',
-      title: '',
-      description: '',
-      categories: [],
-      price: 0,
       images: [],
       completed: false
     };
@@ -58,10 +52,12 @@ class AddListing extends React.Component {
   }
 
   handleChange = event => {
-    console.log(event);
-    console.log(event.target.value);
+    if (!event.target.getAttribute('value')) {
+      alert('...just answer the question');
+      return;
+    }
     let tempQuestions = [...this.state.questions];
-    tempQuestions[this.state.index].answer = event.target.value;
+    tempQuestions[this.state.index].answer = event.target.getAttribute('value');
     this.setState({ questions: tempQuestions, index: this.state.index + 1 });
   };
 
@@ -94,7 +90,6 @@ class AddListing extends React.Component {
                     color: '#d9d9d9',
                     marginLeft: '1em'
                   }}
-                  value={this.state.myInput}
                   onClick={this.goBack}
                 >
                   <ChevronLeft style={{ color: '#BB86FC' }} />
@@ -103,15 +98,28 @@ class AddListing extends React.Component {
               )}
             </div>
 
-            <div
-              style={{
-                textAlign: 'center',
-                justifyContent: 'center',
-                color: '#d9d9d9'
-              }}
-            >
-              {'Tell us about it'}
-            </div>
+            {this.state.index < 4 && (
+              <div
+                style={{
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#d9d9d9'
+                }}
+              >
+                {'Tell us about it'}
+              </div>
+            )}
+            {this.state.index === 5 && (
+              <div
+                style={{
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#d9d9d9'
+                }}
+              >
+                {'Review your listing'}
+              </div>
+            )}
           </div>
         </Slide>
 
@@ -139,7 +147,7 @@ class AddListing extends React.Component {
             handleChange={() => this.handleChange}
           />
         )}
-        {this.state.index === 4 && (
+        {/* {this.state.index === 4 && (
           <div>
             <ImageUploader
               withIcon={true}
@@ -149,10 +157,10 @@ class AddListing extends React.Component {
               maxFileSize={5242880}
             />
           </div>
-        )}
-        {this.state.index === 5 && (
+        )} */}
+        {this.state.index === 4 && (
           <div>
-            {this.state.questions.map(item => {
+            {this.state.questions.map((item, y) => {
               return (
                 <div style={{ color: '#f2f2f2', paddingLeft: '4em' }}>
                   {item.text + ': ' + item.answer}

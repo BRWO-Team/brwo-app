@@ -47,7 +47,10 @@ class App extends Component {
           {this.props.firebase.isFetching ||
             (this.props.items.isFetching && (
               <div className='loading'>
-                <CircularProgress color='secondary' className='child' />
+                <CircularProgress
+                  style={{ color: '#BB86FC' }}
+                  className='child'
+                />
               </div>
             ))}
         </div>
