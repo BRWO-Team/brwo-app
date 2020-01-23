@@ -15,7 +15,7 @@ class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      myInput: ''
+      myInput: null
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
@@ -55,7 +55,7 @@ class Question extends React.Component {
           <Grid container>
             <Grid item xs={12}>
               <input
-                onChange={this.handleTextChange}
+                onChange={this.props.handleChange()}
                 color='white'
                 style={{
                   backgroundColor: '#666666',
@@ -65,15 +65,7 @@ class Question extends React.Component {
                   fontSize: '1em'
                 }}
               />
-              <Button
-                value={this.state.myInput}
-                onClick={this.props.handleChange()}
-              >
-                <ChevronRight
-                  value={this.state.myInput}
-                  style={{ color: '#BB86FC' }}
-                />
-              </Button>
+              {this.props.button}
             </Grid>
           </Grid>
         );

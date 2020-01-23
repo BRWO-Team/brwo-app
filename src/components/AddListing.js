@@ -6,6 +6,7 @@ import { addItem } from '../actions/items.action';
 
 import Button from '@material-ui/core/Button';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ChevronRight from '@material-ui/icons/ChevronRight';
 import Question from './Question';
 import Slide from '@material-ui/core/Slide';
 
@@ -19,20 +20,20 @@ class AddListing extends React.Component {
         {
           text: 'Select Category',
           options: ['Item', 'Service'],
-          answer: null
+          answer: ''
         },
         {
           text: 'Title for your item',
-          answer: null,
+          answer: '',
           label: 'Title'
         },
         {
           text: 'Give some details',
-          answer: null
+          answer: ''
         },
         {
           text: 'Price',
-          answer: null
+          answer: ''
         }
       ],
       index: 0,
@@ -52,22 +53,36 @@ class AddListing extends React.Component {
   }
 
   handleChange = event => {
-    if (!event.target.getAttribute('value')) {
+    let tempQuestions = [...this.state.questions];
+    tempQuestions[this.state.index].answer = event.target.value;
+    this.setState({ questions: tempQuestions });
+    if (this.state.index === 0) this.nextQuestion();
+  };
+
+  handleBoolChange = event => {
+    if (event.target.getAttribute('value') === '') {
       alert('...just answer the question');
       return;
     }
     let tempQuestions = [...this.state.questions];
     tempQuestions[this.state.index].answer = event.target.getAttribute('value');
-    this.setState({ questions: tempQuestions, index: this.state.index + 1 });
+    this.setState({ questions: tempQuestions });
+    if (this.state.index === 0) this.nextQuestion();
+  };
+
+  nextQuestion = () => {
+    if (!this.state.questions[this.state.index].answer)
+      alert('Fill in required field');
+    else this.setState({ index: this.state.index + 1 });
   };
 
   handleSubmit = () => {
     this.props.addItem({
-      listingType: this.state.listingType,
-      itemType: this.state.itemType,
-      title: this.state.title,
-      description: this.state.description,
-      price: this.state.price,
+      listingType: this.state.questions[0].answer,
+      itemType: 'Item',
+      title: this.state.questions[1].answer,
+      description: this.state.questions[2].answer,
+      price: this.state.questions[3].answer,
       date_time_added: Date(),
       test: true,
       user: this.props.firebase.user
@@ -126,25 +141,49 @@ class AddListing extends React.Component {
         {this.state.index === 0 && (
           <Question
             question={this.state.questions[this.state.index]}
-            handleChange={() => this.handleChange}
+            handleChange={() => this.handleBoolChange}
           />
         )}
         {this.state.index === 1 && (
           <Question
             question={this.state.questions[this.state.index]}
             handleChange={() => this.handleChange}
+            button={
+              <Button onClick={this.nextQuestion}>
+                <ChevronRight
+                  value={this.state.myInput}
+                  style={{ color: '#BB86FC' }}
+                />
+              </Button>
+            }
           />
         )}
         {this.state.index === 2 && (
           <Question
             question={this.state.questions[this.state.index]}
             handleChange={() => this.handleChange}
+            button={
+              <Button onClick={this.nextQuestion}>
+                <ChevronRight
+                  value={this.state.myInput}
+                  style={{ color: '#BB86FC' }}
+                />
+              </Button>
+            }
           />
         )}
         {this.state.index === 3 && (
           <Question
             question={this.state.questions[this.state.index]}
             handleChange={() => this.handleChange}
+            button={
+              <Button onClick={this.nextQuestion}>
+                <ChevronRight
+                  value={this.state.myInput}
+                  style={{ color: '#BB86FC' }}
+                />
+              </Button>
+            }
           />
         )}
         {/* {this.state.index === 4 && (
@@ -167,6 +206,15 @@ class AddListing extends React.Component {
                 </div>
               );
             })}
+            <Button
+              style={{
+                color: '#d9d9d9',
+                marginLeft: '1em'
+              }}
+              onClick={this.handleSubmit}
+            >
+              Add Item
+            </Button>
           </div>
         )}
       </div>

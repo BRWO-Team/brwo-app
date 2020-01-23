@@ -6,6 +6,7 @@ import { setLogin } from './actions/login.action';
 import { signout, verifyUser } from './actions/firebase.action';
 
 import Account from './components/Account';
+import Login from './components/Login';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import AddListing from './components/AddListing';
@@ -42,7 +43,10 @@ class App extends Component {
           {this.props.router.route === 'Home' && <Home />}
           {this.props.router.route === 'Borrow' && <Feed />}
           {this.props.router.route === 'Add' && <AddListing />}
-          {this.props.router.route === 'Account' && <Account />}
+
+          {this.props.router.route === 'Account' && (
+            <div>{!this.props.firebase.user ? <Login /> : <Account />}</div>
+          )}
 
           {this.props.firebase.isFetching ||
             (this.props.items.isFetching && (

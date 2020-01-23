@@ -36,7 +36,7 @@ const addItem = itemDetails => {
     dispatch({ type: REQUEST_ADD_ITEM });
     axios
       .post(
-        'https://cors-anywhere.herokuapp.com/https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items/postnew',
+        'https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items/',
         itemDetails
       )
       .then(() => {
