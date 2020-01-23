@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { signout } from '../actions/firebase.action';
+
 import Grid from '@material-ui/core/Grid';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -9,6 +11,7 @@ import Slide from '@material-ui/core/Slide';
 
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ListIcon from '@material-ui/icons/List';
 import SettingsIcon from '@material-ui/icons/Settings';
 
@@ -57,6 +60,14 @@ class Account extends React.Component {
                   <SettingsIcon />
                 </ListItemIcon>
                 <ListItemText style={{ color: '#f2f2f2' }} primary='Settings' />
+              </ListItem>
+            </Grid>
+            <Grid item xs={12} style={{ paddingLeft: '2em' }}>
+              <ListItem button onClick={() => this.props.signout()}>
+                <ListItemIcon style={{ color: '#BB86FC' }}>
+                  <ExitToAppIcon />
+                </ListItemIcon>
+                <ListItemText style={{ color: '#f2f2f2' }} primary='Logout' />
               </ListItem>
             </Grid>
           </Grid>
@@ -176,6 +187,8 @@ class Account extends React.Component {
 
 const mapStateToProps = state => ({ ...state });
 
-export default connect(mapStateToProps)(Account);
+export default connect(mapStateToProps, {
+  signout
+})(Account);
 
 export { Account };
