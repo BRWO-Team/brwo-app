@@ -85,7 +85,7 @@ class AddListing extends React.Component {
       price: this.state.questions[3].answer,
       date_time_added: Date(),
       test: true,
-      user: this.props.firebase.user
+      user: this.props.firebase.user['uid']
     });
   };
 

@@ -32,12 +32,23 @@ const getNItems = i => {
 };
 
 const addItem = itemDetails => {
+  let data = new FormData();
+  // let images = itemDetails['images'];
+  // delete itemDetails['images'];
+
+  console.log(itemDetails)
+  data.set('data', JSON.stringify(itemDetails));
+  console.log(data.get('data'))
+  // for (let i = 0; i < images.length; i++) {
+  //   data.append('image' + (i + 1).toString(), images[i], images[i].name);
+  // }
+
   return dispatch => {
     dispatch({ type: REQUEST_ADD_ITEM });
     axios
       .post(
-        'https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items/',
-        itemDetails
+        'https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/items',
+        data
       )
       .then(() => {
         dispatch({ type: ADD_ITEM_SUCCESS });
