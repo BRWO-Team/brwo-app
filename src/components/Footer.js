@@ -42,13 +42,6 @@ class Footer extends React.Component {
           onClick={() => this.props.changeRoute('Home')}
         />
         <BottomNavigationAction
-          label='Borrow'
-          value='borrow'
-          icon={<FormatListBulletedIcon />}
-          style={{ color: '#f2f2f2' }}
-          onClick={() => this.props.changeRoute('Borrow')}
-        />
-        <BottomNavigationAction
           label='Add'
           value='add'
           icon={<AddIcon />}

@@ -8,7 +8,6 @@ import { signout, verifyUser } from './actions/firebase.action';
 import Account from './components/Account';
 import Login from './components/Login';
 import Footer from './components/Footer';
-import Home from './components/Home';
 import AddListing from './components/AddListing';
 import Feed from './components/Feed';
 
@@ -33,15 +32,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='main'>
-          {/* <Drawer
-            anchor='top'
-            open={this.props.login.isOpen}
-            onClose={this.handleCloseLogin}
-          >
-            <Login />
-          </Drawer> */}
-          {this.props.router.route === 'Home' && <Home />}
-          {this.props.router.route === 'Borrow' && <Feed />}
+          {this.props.router.route === 'Home' && <Feed />}
           {this.props.router.route === 'Add' && <AddListing />}
 
           {this.props.router.route === 'Account' && (
