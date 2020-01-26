@@ -31,6 +31,26 @@ const getNItems = i => {
   };
 };
 
+const getMostRecentItems = i => {
+  return dispatch => {
+    dispatch({ type: REQUEST_ITEMS });
+    axios
+      .get(
+        'https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/most_recent/items?n=' +
+          i,
+        {
+          'Access-Control-Allow-Origin': '*'
+        }
+      )
+      .then(res => {
+        dispatch({ type: GET_ITEMS_SUCCESS, payload: res });
+      })
+      .catch(error => {
+        dispatch({ type: GET_ITEMS_ERROR });
+      });
+  };
+};
+
 const addItem = itemDetails => {
   return dispatch => {
     dispatch({ type: REQUEST_ADD_ITEM });
@@ -48,4 +68,4 @@ const addItem = itemDetails => {
   };
 };
 
-export { getNItems, addItem };
+export { getNItems, getMostRecentItems, addItem };
