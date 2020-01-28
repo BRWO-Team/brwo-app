@@ -1,3 +1,4 @@
+import axios from 'axios';
 import firebase from 'firebase';
 import {
   CLEAR_FIREBASE,
@@ -93,20 +94,20 @@ const verifyUser = () => {
 };
 
 const updateUser = user => {
-  // return dispatch => {
-  //   dispatch({ type: REQUEST_UPDATE_USER });
-  //   axios
-  //     .post(
-  //       'https://cors-anywhere.herokuapp.com/https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/user/update',
-  //       user
-  //     )
-  //     .then(() => {
-  //       dispatch({ type: UPDATE_USER_SUCCESS });
-  //     })
-  //     .catch(error => {
-  //       dispatch({ type: UPDATE_USER_ERROR });
-  //     });
-  // };
+  return dispatch => {
+    dispatch({ type: REQUEST_UPDATE_USER });
+    axios
+      .post(
+        'https://cors-anywhere.herokuapp.com/https://api-dot-pacific-plating-262123.appspot.com/api/v1.0/user/update',
+        user
+      )
+      .then(() => {
+        dispatch({ type: UPDATE_USER_SUCCESS });
+      })
+      .catch(error => {
+        dispatch({ type: UPDATE_USER_ERROR });
+      });
+  };
 };
 
 export {

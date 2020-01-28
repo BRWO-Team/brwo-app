@@ -186,7 +186,7 @@ class AddListing extends React.Component {
             }
           />
         )}
-        {/* {this.state.index === 4 && (
+        {this.state.index === 4 && (
           <div>
             <ImageUploader
               withIcon={true}
@@ -196,8 +196,8 @@ class AddListing extends React.Component {
               maxFileSize={5242880}
             />
           </div>
-        )} */}
-        {this.state.index === 4 && (
+        )}
+        {this.state.index === 5 && (
           <div>
             {this.state.questions.map((item, y) => {
               return (

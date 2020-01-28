@@ -18,8 +18,6 @@ import ItemDetail from './ItemDetail';
 
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
-import Header from './Header';
-
 import './Feed.css';
 
 class ItemsList extends React.Component {
@@ -64,9 +62,17 @@ class ItemsList extends React.Component {
   };
 
   addToFavorites = key => {
-    if (this.props.firebase.favorites.includes(key)) {
-      this.updateUser(key, this.props.firebase.user.uid);
-    }
+    console.log(key);
+    let user = {
+      favorites: [key],
+      uid: this.props.firebase.user.uid
+    };
+
+    // this.updateUser(user);
+
+    // if (this.props.firebase.user && this.props.firebase.user.favorites.includes(key)) {
+    //   this.updateUser(key, this.props.firebase.user.uid);
+    // } else remove key
   };
 
   getColor = item => {
@@ -77,10 +83,6 @@ class ItemsList extends React.Component {
   render() {
     return (
       <div className='root' style={{ backgroundColor: '#121212' }}>
-        <div className='filter-header'>
-          <Header />
-        </div>
-
         {!this.state.item && (
           <GridList
             spacing={1}

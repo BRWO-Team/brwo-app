@@ -6,9 +6,10 @@ import { setLogin } from './actions/login.action';
 import { signout, verifyUser } from './actions/firebase.action';
 
 import Account from './components/Account';
+import AddListing from './components/AddListing';
 import Login from './components/Login';
 import Footer from './components/Footer';
-import AddListing from './components/AddListing';
+import Header from './components/Header';
 import Feed from './components/Feed';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -32,6 +33,9 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='main'>
+          <div className='filter-header'>
+            <Header />
+          </div>
           {this.props.router.route === 'Home' && <Feed />}
           {this.props.router.route === 'Add' && <AddListing />}
 
