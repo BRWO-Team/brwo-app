@@ -2,8 +2,6 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import Button from '@material-ui/core/Button';
-import ChevronRight from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
 import Slide from '@material-ui/core/Slide';
@@ -31,7 +29,6 @@ class Question extends React.Component {
         return (
           <React.Fragment>
             {this.props.question.options.map((item, y) => {
-              console.log(item);
               return (
                 <ListItem
                   button

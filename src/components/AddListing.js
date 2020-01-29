@@ -7,6 +7,7 @@ import { addItem } from '../actions/items.action';
 import Button from '@material-ui/core/Button';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import Grid from '@material-ui/core/Grid';
 import Question from './Question';
 import Slide from '@material-ui/core/Slide';
 
@@ -85,7 +86,8 @@ class AddListing extends React.Component {
       price: this.state.questions[3].answer,
       date_time_added: Date(),
       test: true,
-      user: this.props.firebase.user['uid']
+      user: this.props.firebase.user['uid'],
+      images: this.state.images
     });
   };
 
@@ -114,7 +116,7 @@ class AddListing extends React.Component {
             </div>
 
             {this.state.index < 4 && (
-              <div
+              <h4
                 style={{
                   textAlign: 'center',
                   justifyContent: 'center',
@@ -122,18 +124,19 @@ class AddListing extends React.Component {
                 }}
               >
                 {'Tell us about it'}
-              </div>
+              </h4>
             )}
             {this.state.index === 5 && (
-              <div
+              <h4
                 style={{
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#d9d9d9'
+                  color: '#d9d9d9',
+                  paddingBottom: '2em'
                 }}
               >
                 {'Review your listing'}
-              </div>
+              </h4>
             )}
           </div>
         </Slide>
@@ -199,22 +202,51 @@ class AddListing extends React.Component {
         )}
         {this.state.index === 5 && (
           <div>
-            {this.state.questions.map((item, y) => {
-              return (
-                <div style={{ color: '#f2f2f2', paddingLeft: '4em' }}>
-                  {item.text + ': ' + item.answer}
-                </div>
-              );
-            })}
-            <Button
-              style={{
-                color: '#d9d9d9',
-                marginLeft: '1em'
-              }}
-              onClick={this.handleSubmit}
-            >
-              Add Item
-            </Button>
+            <Grid container>
+              {this.state.questions.map((item, y) => {
+                return (
+                  <React.Fragment>
+                    <Grid
+                      item
+                      xs={6}
+                      key={y}
+                      style={{ color: '#f2f2f2', paddingLeft: '4em' }}
+                    >
+                      {item.text}
+                    </Grid>
+                    <Grid
+                      item
+                      xs={6}
+                      key={y}
+                      style={{ color: '#f2f2f2', paddingBottom: '1em' }}
+                    >
+                      <input
+                        value={item.answer}
+                        color='white'
+                        style={{
+                          backgroundColor: '#666666',
+                          color: '#d9d9d9',
+                          width: '25%',
+                          padding: '.5em',
+                          fontSize: '1em'
+                        }}
+                      />
+                    </Grid>
+                  </React.Fragment>
+                );
+              })}
+            </Grid>
+            <Grid item xs={12} style={{ paddingLeft: '4em' }}>
+              <Button
+                style={{
+                  color: '#d9d9d9',
+                  marginLeft: '1em'
+                }}
+                onClick={this.handleSubmit}
+              >
+                Add Item
+              </Button>
+            </Grid>
           </div>
         )}
       </div>

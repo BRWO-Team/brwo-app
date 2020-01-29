@@ -33,8 +33,14 @@ const getNItems = i => {
 
 const addItem = itemDetails => {
   let data = new FormData();
-
   data.set('data', JSON.stringify(itemDetails));
+  for (let i = 0; i < itemDetails.images.length; i++) {
+    data.append(
+      'image' + (i + 1).toString(),
+      itemDetails.images[i],
+      itemDetails.images[i].name
+    );
+  }
 
   return dispatch => {
     dispatch({ type: REQUEST_ADD_ITEM });
