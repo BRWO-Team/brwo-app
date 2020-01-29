@@ -62,6 +62,7 @@ const signin = (email, password) => {
         dispatch({ type: VERIFY_USER_SUCCESS, payload: { res } });
       })
       .catch(error => {
+        alert('Invaild Email or Password');
         dispatch({ type: SIGN_IN_FAILURE, error });
       });
   };

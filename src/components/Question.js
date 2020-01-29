@@ -50,18 +50,20 @@ class Question extends React.Component {
       } else {
         return (
           <Grid container>
-            <Grid item xs={12}>
+            <Grid item xs={9}>
               <input
                 onChange={this.props.handleChange()}
                 color='white'
                 style={{
                   backgroundColor: '#666666',
                   color: '#d9d9d9',
-                  width: '25%',
                   padding: '.5em',
-                  fontSize: '1em'
+                  fontSize: '1em',
+                  width: '90%'
                 }}
               />
+            </Grid>
+            <Grid item xs={3}>
               {this.props.button}
             </Grid>
           </Grid>
