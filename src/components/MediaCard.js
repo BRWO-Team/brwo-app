@@ -21,6 +21,7 @@ const cardStyles = {
 };
 
 class MediaCard extends React.Component {
+  //takes image, title, and description
   constructor(props) {
     super(props);
   }

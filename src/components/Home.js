@@ -85,6 +85,14 @@ class Home extends React.Component {
         </Jumbotron>
 
         <ListingTypes />
+
+        <div className='instructions' style={{ marginTop: 200 }}>
+          <h1>Instructions will go here</h1>
+        </div>
+
+        <div className='categories'>
+          <h1>Show Additional Categories</h1>
+        </div>
       </div>
     );
   }
