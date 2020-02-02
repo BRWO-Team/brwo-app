@@ -20,7 +20,7 @@ class ListingTypes extends React.Component {
   render() {
     const cardStyles = {
       card: {
-        maxWidth: 345
+        maxWidth: 400
       },
       media: {
         height: 140

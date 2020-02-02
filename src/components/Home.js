@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 import Jumbotron from 'react-bootstrap/Jumbotron';
 
@@ -9,10 +10,12 @@ import { getNItems, getMostRecentItems } from '../actions/items.action';
 import { updateUser } from '../actions/firebase.action';
 
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+import { sizing } from '@material-ui/system';
 
 import Header from './Header';
 import Carousel from './RecentListingsCarousel';
 import ListingTypes from './ListingTypes';
+import InstructionStepper from './InstructionStepper';
 
 import './Home.css';
 
@@ -85,6 +88,18 @@ class Home extends React.Component {
         </Jumbotron>
 
         <ListingTypes />
+
+        <Grid container justify='center'>
+          <Grid item xs={8}>
+            <Typography
+              variant='h4'
+              style={{ fontFamily: 'Roboto, sans-serif', textAlign: 'center' }}
+            >
+              How to BRWO
+            </Typography>
+            <InstructionStepper />
+          </Grid>
+        </Grid>
 
         <div className='instructions' style={{ marginTop: 200 }}>
           <h1>Instructions will go here</h1>
