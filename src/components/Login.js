@@ -6,6 +6,10 @@ import { createAccount, signin, signout } from '../actions/firebase.action';
 import { changeRoute } from '../actions/router.action';
 
 import Button from '@material-ui/core/Button';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
@@ -95,6 +99,13 @@ class Login extends Component {
   render() {
     return (
       <div>
+        {this.state.createAccount && (
+          <ListItem button onClick={this.close}>
+            <ListItemIcon style={{ color: '#BB86FC' }}>
+              <ChevronLeft />
+            </ListItemIcon>
+          </ListItem>
+        )}
         <div style={{ color: '#d9d9d9' }} className='login'>
           {this.state.createAccount ? <h3>Create Account</h3> : <h3>Login</h3>}
           <Typography
@@ -211,10 +222,10 @@ class Login extends Component {
             onClick={this.handleSubmit}
             className='submit-button'
           >
-            {this.state.createAccount ? 'Create Account' : 'Sign In'}
+            {this.state.createAccount ? 'Submit' : 'Sign In'}
           </Button>
 
-          {!this.state.createAccount ? (
+          {!this.state.createAccount && (
             <Button
               style={{
                 color: '#d9d9d9',
@@ -224,17 +235,6 @@ class Login extends Component {
               className='create-button'
             >
               Create Account
-            </Button>
-          ) : (
-            <Button
-              style={{
-                color: '#d9d9d9',
-                marginTop: '1em'
-              }}
-              onClick={this.close}
-              className='create-button'
-            >
-              Return
             </Button>
           )}
         </div>

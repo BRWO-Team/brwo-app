@@ -44,7 +44,16 @@ export default function CoolMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem>Filters will be here</MenuItem>
+        <MenuItem onClick={() => props.changeRoute('Home')}>Home</MenuItem>
+        <MenuItem onClick={() => props.changeRoute('Add')}>
+          List an Item
+        </MenuItem>
+        <MenuItem onClick={() => props.changeRoute('Favorites')}>
+          Favorites
+        </MenuItem>
+        <MenuItem onClick={() => props.changeRoute('Account')}>
+          My Account
+        </MenuItem>
       </Menu>
     </div>
   );

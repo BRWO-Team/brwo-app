@@ -14,6 +14,8 @@ import Feed from './components/Feed';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import { isMobile } from 'react-device-detect';
+
 import './App.css';
 
 class App extends Component {
@@ -54,9 +56,11 @@ class App extends Component {
             ))}
         </div>
 
-        <div className='bottom'>
-          <Footer />
-        </div>
+        {isMobile && (
+          <div className='bottom'>
+            <Footer />
+          </div>
+        )}
       </div>
     );
   }

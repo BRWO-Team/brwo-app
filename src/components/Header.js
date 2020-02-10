@@ -7,7 +7,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 
 import SearchIcon from '@material-ui/icons/Search';
 
-import CoolMenu from './Menu';
+import MenuBar from './MenuWrapper';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -87,7 +87,7 @@ export default function Header(props) {
             />
           </div>
           <div className={classes.menuButton}>
-            <CoolMenu />
+            <MenuBar />
           </div>
         </Toolbar>
       </AppBar>
