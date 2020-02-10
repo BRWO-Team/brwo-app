@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.8.3",
+    "@material-ui/core": "latest",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/lab": "^4.0.0-alpha.35",
     "axios": "^0.19.0",
@@ -13,10 +13,12 @@
     "react": "^16.10.2",
     "react-chartjs-2": "^2.8.0",
     "react-data-grid": "^6.1.0",
+    "react-device-detect": "^1.11.14",
     "react-dom": "^16.10.2",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.5",
     "react-hot-loader": "^4.12.15",
+    "react-images-upload": "^1.2.7",
     "react-redux": "^6.0.1",
     "react-scripts": "3.2.0",
     "react-spreadsheet-grid": "^1.4.3",
@@ -29,7 +31,8 @@
     "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "windows": "set HTTPS=true && react-scripts start"
   },
   "browserslist": {
     "production": [

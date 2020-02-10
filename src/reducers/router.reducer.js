@@ -1,6 +1,6 @@
-import { CHANGE_ROUTE } from "../actions/types";
+import { CHANGE_ROUTE } from '../actions/types';
 
-const initialState = { isFetching: false };
+const initialState = { isFetching: false, route: 'Home' };
 
 export default function articles(state = initialState, action) {
   switch (action.type) {

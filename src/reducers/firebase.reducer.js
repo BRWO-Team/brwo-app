@@ -11,10 +11,13 @@ import {
   SIGN_OUT_FAILURE,
   REQUEST_VERIFY_USER,
   VERIFY_USER_SUCCESS,
-  VERIFY_USER_NOONE_LOGGED_IN
-} from "../actions/types";
+  VERIFY_USER_NOONE_LOGGED_IN,
+  REQUEST_UPDATE_USER,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR
+} from '../actions/types';
 
-const initialState = { isFetching: false, addExerciseSuccess: "initial" };
+const initialState = { isFetching: false, addExerciseSuccess: 'initial' };
 
 export default function articles(state = initialState, action) {
   switch (action.type) {
@@ -96,6 +99,22 @@ export default function articles(state = initialState, action) {
         isFetching: false,
         user: null,
         verifyingUser: false
+      });
+    }
+    case REQUEST_UPDATE_USER: {
+      return Object.assign({}, state, {
+        isFetching: true
+      });
+    }
+    case UPDATE_USER_SUCCESS: {
+      return Object.assign({}, state, {
+        user: action.payload,
+        isFetching: false
+      });
+    }
+    case UPDATE_USER_ERROR: {
+      return Object.assign({}, state, {
+        isFetching: false
       });
     }
     default:

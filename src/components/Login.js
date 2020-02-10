@@ -6,7 +6,12 @@ import { createAccount, signin, signout } from '../actions/firebase.action';
 import { changeRoute } from '../actions/router.action';
 
 import Button from '@material-ui/core/Button';
+import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 
 import './Login.css';
 
@@ -56,10 +61,13 @@ class Login extends Component {
   validateCreds = () => {
     if (
       this.state.password === this.state.passwordVerification &&
-      this.state.password.length > 6
+      this.state.password.length > 6 &&
+      this.state.name.length > 5 &&
+      this.state.email > 5
     ) {
       return true;
     }
+    alert('Please fill in all fields');
     return false;
   };
 
@@ -91,91 +99,142 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div className='login'>
+        {this.state.createAccount && (
+          <ListItem button onClick={this.close}>
+            <ListItemIcon style={{ color: '#BB86FC' }}>
+              <ChevronLeft />
+            </ListItemIcon>
+          </ListItem>
+        )}
+        <div style={{ color: '#d9d9d9' }} className='login'>
           {this.state.createAccount ? <h3>Create Account</h3> : <h3>Login</h3>}
-          <TextField
-            className='email'
-            label={`Email`}
-            fullWidth
+          <Typography
+            style={{
+              color: '#d9d9d9',
+              display: 'inline',
+              paddingRight: '.5em'
+            }}
+            variant='overline'
+          >
+            Email
+          </Typography>
+          <input
+            onChange={this.handleEmailChange}
             value={this.state.email}
-            onChange={e => this.handleEmailChange(e)}
-            margin='normal'
-            style={{ display: 'block' }}
+            style={{
+              backgroundColor: '#666666',
+              color: '#d9d9d9',
+              padding: '.5em',
+              fontSize: '1em',
+              display: 'block',
+              marginBottom: '1em',
+              width: '100%'
+            }}
           />
           {this.state.createAccount && (
-            <TextField
-              fullWidth
-              className='name'
-              label={`Name`}
-              value={this.state.name}
-              onChange={e => this.handleNameChange(e)}
-              margin='normal'
-              style={{ display: 'block' }}
-            />
+            <React.Fragment>
+              <Typography
+                style={{
+                  color: '#d9d9d9',
+                  display: 'inline',
+                  paddingRight: '.5em'
+                }}
+                variant='overline'
+              >
+                Name
+              </Typography>
+              <input
+                onChange={this.handleNameChange}
+                value={this.state.name}
+                style={{
+                  backgroundColor: '#666666',
+                  color: '#d9d9d9',
+                  padding: '.5em',
+                  fontSize: '1em',
+                  display: 'block',
+                  marginBottom: '1em',
+                  width: '100%'
+                }}
+              />
+            </React.Fragment>
           )}
-          <TextField
-            fullWidth
-            type='password'
-            className='password'
-            label={`Password`}
+          <Typography
+            style={{
+              color: '#d9d9d9',
+              display: 'inline',
+              paddingRight: '.5em'
+            }}
+            variant='overline'
+          >
+            Password
+          </Typography>
+          <input
             value={this.state.password}
-            onChange={e => this.handlePasswordChange(e)}
-            margin='normal'
-            style={{ display: 'block' }}
+            type={'password'}
+            onChange={this.handlePasswordChange}
+            style={{
+              backgroundColor: '#666666',
+              color: '#d9d9d9',
+              padding: '.5em',
+              fontSize: '1em',
+              display: 'block',
+              marginBottom: '1em',
+              width: '100%'
+            }}
           />
+
           {this.state.createAccount && (
-            <TextField
-              fullWidth
-              type='password'
-              className='password'
-              label={`Verify Password`}
-              value={this.state.passwordVerification}
-              onChange={e => this.handlePasswordVerificationChange(e)}
-              margin='normal'
-              style={{ display: 'block' }}
-            />
+            <React.Fragment>
+              <Typography
+                style={{
+                  color: '#d9d9d9',
+                  display: 'inline',
+                  paddingRight: '.5em'
+                }}
+                variant='overline'
+              >
+                Verify Password
+              </Typography>
+              <input
+                value={this.state.passwordVerification}
+                type={'password'}
+                onChange={this.handlePasswordVerificationChange}
+                style={{
+                  backgroundColor: '#666666',
+                  color: '#d9d9d9',
+                  padding: '.5em',
+                  fontSize: '1em',
+                  display: 'block',
+                  marginBottom: '1em',
+                  width: '100%'
+                }}
+              />
+            </React.Fragment>
           )}
 
           <Button
-            variant='contained'
             style={{
-              color: 'white',
+              color: '#d9d9d9',
               marginTop: '1em',
               float: 'left',
-              backgroundColor: '#BB86FC',
               marginRight: '1em'
             }}
             onClick={this.handleSubmit}
             className='submit-button'
           >
-            {this.state.createAccount ? 'Create Account' : 'Sign In'}
+            {this.state.createAccount ? 'Submit' : 'Sign In'}
           </Button>
 
-          {!this.state.createAccount ? (
+          {!this.state.createAccount && (
             <Button
-              variant='contained'
               style={{
-                color: 'white',
-                marginTop: '1em',
-                backgroundColor: '#BB86FC'
+                color: '#d9d9d9',
+                marginTop: '1em'
               }}
               onClick={this.handleCreateAccount}
               className='create-button'
             >
               Create Account
-            </Button>
-          ) : (
-            <Button
-              variant='contained'
-              style={{
-                color: 'white',
-                marginTop: '1em',
-                backgroundColor: '#BB86FC'
-              }}
-              onClick={this.close}
-              className='create-button'
-            >
-              Return
             </Button>
           )}
         </div>
