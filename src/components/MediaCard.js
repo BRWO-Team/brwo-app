@@ -40,7 +40,7 @@ class MediaCard extends React.Component {
               <Typography gutterBottom variant='h5' component='h2'>
                 {this.props.title}
               </Typography>
-              <Typography variant='body2' color='textSecondary' component='p'>
+              <Typography variant='body2' color='textSecondary' component='p' noWrap>
                 {this.props.description}
               </Typography>
             </CardContent>

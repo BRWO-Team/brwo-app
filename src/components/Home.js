@@ -10,12 +10,12 @@ import { getNItems, getMostRecentItems } from '../actions/items.action';
 import { updateUser } from '../actions/firebase.action';
 
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
-import { sizing } from '@material-ui/system';
 
 import Header from './Header';
 import Carousel from './RecentListingsCarousel';
 import ListingTypes from './ListingTypes';
 import InstructionStepper from './InstructionStepper';
+import CategoryListings from './CategoryListings';
 
 import './Home.css';
 
@@ -29,7 +29,8 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getNItems(5);
+    this.props.getNItems(10);
+    // this.props.getMostRecentItems(5);
   }
 
   getGridListCols = () => {
@@ -79,6 +80,8 @@ class Home extends React.Component {
         <div className='filter-header'>
           <Header />
         </div>
+
+        <CategoryListings />
 
         <Jumbotron style={{ textAlign: 'center' }}>
           <Typography variant='h4' style={{ fontFamily: 'Roboto, sans-serif' }}>
